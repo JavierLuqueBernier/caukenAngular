@@ -23,6 +23,7 @@ import { DecisionComponent } from './decision/decision.component';
 import { SinopsisComponent } from './sinopsis/sinopsis.component';
 import { LikesComponent } from './likes/likes.component';
 import { ShareComponent } from './share/share.component';
+import { CoversListComponent } from './covers-list/covers-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ShareComponent } from './share/share.component';
     DecisionComponent,
     SinopsisComponent,
     LikesComponent,
-    ShareComponent
+    ShareComponent,
+    CoversListComponent
   ],
   imports: [
     BrowserModule,
