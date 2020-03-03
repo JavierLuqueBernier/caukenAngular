@@ -1,19 +1,18 @@
-<section>
+<section class="covers-list">
   <h2>{{tituloSeccion}}</h2>
-  <article>
-    <div class="imgCont">
-      <img src="https://picsum.photos/id/237/200/300" alt="">
+  <div class="scroller">
+    <div class="coverCont" *ngFor="let post of arrPosts">
+      <article class="cover">
+        <div class="imgCont">
+          <img [src]="post.image" alt="">
+        </div>
+        <div class="coverText">
+          <h3>Título de post</h3>
+          <p class="hashtags">
+            <span class="hashtag">#categoria</span><span class="hashtag">#categoria</span>
+          </p>
+        </div>
+      </article>
     </div>
-    <h3>Título de post</h3>
-    <p class="hashtags">
-      <span class="hashtag">
-        #categoria
-      </span>
-      <span class="hashtag">
-        #categoria
-      </span>
-    </p>
-
-  </article>
-
+  </div>
 </section>

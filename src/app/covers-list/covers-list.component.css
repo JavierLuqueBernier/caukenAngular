@@ -1,0 +1,57 @@
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  scrollbar-width: none;
+}
+
+.coverCont {}
+
+.cover {
+  width: 168px;
+  height: 244px;
+  overflow: hidden;
+  margin: 1em;
+  border-radius: .5em;
+  box-shadow: 3px 3px 7px var(--shadow1);
+  background: var(--background1);
+}
+
+.cover .imgCont {
+  position: relative;
+  width: 168px;
+  height: 168px;
+  overflow: hidden;
+}
+
+.cover .imgCont img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.coverText{
+  padding: .875rem 1rem 1rem;
+
+}
+
+.cover h3 {
+  line-height: 1.5em;
+  background:green;
+}
+
+.cover p {
+  color: var(--color2);
+  font-size:.875rem;
+  background:red;
+}
+
+.cover .hashtag{
+  padding-right:1em;
+}
