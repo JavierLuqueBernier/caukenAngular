@@ -14,7 +14,7 @@ export class Post {
     pContent: string,
     pCategory: string,
     pAutor: string,
-    pAutors:number,
+    pAutors: number,
     pLikes: number,
   ) {
     this.id = pId;

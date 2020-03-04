@@ -43,13 +43,11 @@
 
 .cover h3 {
   line-height: 1.5em;
-  background:green;
 }
 
 .cover p {
   color: var(--color2);
   font-size:.875rem;
-  background:red;
 }
 
 .cover .hashtag{
