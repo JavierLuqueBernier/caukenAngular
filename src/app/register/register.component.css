@@ -1,0 +1,35 @@
+fieldset.borde {
+    border: 3px solid #e17b68;
+}
+
+input {
+    border: none;
+    background: none;
+}
+
+legend {
+    margin-left: 1em;
+    padding: 0.5em;
+    font-size: 0.75rem;
+    color: #e17b68;
+}
+
+form {
+    width: 100%;
+}
+
+.btn {
+    width: 150px;
+    height: 36px;
+    border-radius: 200px;
+    background-color: #e8644a;
+    margin: 2em auto;
+    display: block;
+    border: none;
+  }
+
+.imagotipo {
+    margin: 3em auto;
+    /* border: 1px solid red; */
+    display: block;
+}
