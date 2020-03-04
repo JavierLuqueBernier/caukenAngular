@@ -24,6 +24,7 @@ import { SinopsisComponent } from './sinopsis/sinopsis.component';
 import { LikesComponent } from './likes/likes.component';
 import { ShareComponent } from './share/share.component';
 import { CoversListComponent } from './covers-list/covers-list.component';
+import { NewComponent } from './new/new.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CoversListComponent } from './covers-list/covers-list.component';
     SinopsisComponent,
     LikesComponent,
     ShareComponent,
-    CoversListComponent
+    CoversListComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
