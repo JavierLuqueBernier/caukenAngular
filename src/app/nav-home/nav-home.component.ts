@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-home',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-home.component.css']
 })
 export class NavHomeComponent implements OnInit {
-
+  @Input() sectionName: string;
   constructor() { }
 
   ngOnInit() {
