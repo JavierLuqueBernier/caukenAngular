@@ -1,0 +1,60 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--background2);
+  box-shadow: 1px 1px 3px var(--shadow1);
+  height: fit-content;
+  z-index: 100;
+}
+
+.hamburguer {}
+
+.section-title {}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 0%;
+  border: none;
+  background: none;
+  border-bottom: 0px solid var(--color1);
+  transition: .25s
+}
+
+.search:hover input {
+  width: 100%;
+  border-bottom: 2px solid var(--color1);
+}
+
+.search button {
+  position: absolute;
+  right: 1em;
+  width: 1em;
+  border: none;
+  background: none;
+}
+
+.search button img {
+  height: 1em;
+}
+
+.user {
+  height: 1.5em;
+}
+
+.user img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+nav ul li:first-child {
+  background: yellow;
+}
+
+nav ul li:nth-child(2) {}
+
+nav ul li:last-child {}
