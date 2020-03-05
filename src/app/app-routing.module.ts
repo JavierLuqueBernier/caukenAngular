@@ -12,7 +12,7 @@ import { CommentsComponent } from './comments/comments.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryTestComponent },
