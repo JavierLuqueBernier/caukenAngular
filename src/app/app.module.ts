@@ -25,6 +25,7 @@ import { LikesComponent } from './likes/likes.component';
 import { ShareComponent } from './share/share.component';
 import { CoversListComponent } from './covers-list/covers-list.component';
 import { NewComponent } from './new/new.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NewComponent } from './new/new.component';
     LikesComponent,
     ShareComponent,
     CoversListComponent,
-    NewComponent
+    NewComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

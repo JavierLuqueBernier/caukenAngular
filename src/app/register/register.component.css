@@ -1,5 +1,5 @@
 fieldset.borde {
-    border: 3px solid #e17b68;
+    border: 3px solid var(--color3);
 }
 
 input {
@@ -11,7 +11,7 @@ legend {
     margin-left: 1em;
     padding: 0.5em;
     font-size: 0.75rem;
-    color: #e17b68;
+    color: var(--color3);
 }
 
 form {

@@ -2,8 +2,12 @@
   <app-nav-home *ngIf=""></app-nav-home>
   <app-nav-reader></app-nav-reader>
   <div class="row">
-    <div class="col-2 hamburguer"><a><img src="../../assets/images/hamburguer.svg" alt=""></a></div>
-    <div class="col-3 section-title"><h2>Sección</h2></div>
+    <div class="col-2 hamburguer">
+      <a *ngIf="!postRoute"><img src="../../assets/images/hamburguer.svg" alt=""></a>
+      <a *ngIf="postRoute"><img src="../../assets/images/back-arrow.svg" alt=""></a>
+    </div>
+    <div *ngIf="!postRoute" class="col-3 section-title"><h2>Sección</h2></div>
+    <div *ngIf="postRoute" class="col-3 section-title"><h2>Título de libro</h2></div>
     <div class="col-5 search"><input type="text"><button><img src="../../assets/images/search.svg" alt=""></button></div>
     <div class="col-2 user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
   </div>

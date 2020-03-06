@@ -16,12 +16,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryTestComponent },
-  { path: 'page', component: PaginaComponent},
+  { path: 'page/:firstPageId/:pageId', component: PaginaComponent },
   { path: 'new-branch', component: NewComponent },
   { path: 'new-post', component: NewComponent },
   { path: 'myarea', component: MyAreaComponent },
   { path: 'comments', component: CommentsComponent },
-  { path: '**', redirectTo: '/'}
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

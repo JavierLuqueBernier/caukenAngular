@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-nav',
@@ -7,11 +10,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   @Input() nombreEntorno: string;
-  constructor() {
+  url: any;
+  postRoute: boolean;
+
+  constructor(private location: Location, private router: Router) {
+    router.events.subscribe((val) => {
+      this.url = location.path();
+      this.postRoute = (this.url.slice(0, 5) === '/page') ? true : false;
+      console.log(this.postRoute)
+    });
+
+
+
 
   }
 
   ngOnInit() {
+
+
+
   }
 
 }
