@@ -1,0 +1,106 @@
+.post {
+  padding-bottom:1rem;
+}
+
+.post header {
+  padding: 1rem 1.25rem;
+}
+
+.post h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.post h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.093em;
+}
+
+.post .migas {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.post .migas .miga {
+  width: 2rem;
+}
+
+.post .migas .chapter {
+  display: block;
+  height: 0.75rem;
+  width: 0.75rem;
+  border: 2px solid var(--background3);
+  border-radius: 50%;
+  transition: .25s;
+}
+
+.post .migas .miga:last-child .chapter{
+  background:var(--background3)
+}
+
+.post .miga:hover .chapter {
+  box-shadow: 0px 0px 5px red;
+}
+
+.post .migas .chapter::after {
+  content: '';
+  display: block;
+  position: relative;
+  border-top: 2px solid var(--background3);
+  height: .35rem;
+  width: 1.4rem;
+  margin-left: 0.6rem;
+  margin-top: 0.15rem;
+}
+
+.post .migas .miga:last-child .chapter::after {
+  border: none;
+}
+
+.post .content {
+  padding: 1.25rem;
+  line-height: 1.75em;
+}
+
+.post .content figure {
+  position: relative;
+  width: 85vw;
+  height: 85vw;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: .5rem;
+}
+
+.post .content figure img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.post .decision{
+  position: relative;
+  width:90%;
+  height:2rem;
+  margin:0 auto;
+  border-radius:1rem;
+  background:var(--background4);
+}
+
+.post .decision::after{
+  content:'';
+  display:block;
+  position: absolute;
+  top:.5rem;
+  left:50%;
+  height: 0.4rem;
+  width: 2rem;
+  border-radius: .2rem;
+  transform: translateX(-50%);
+  background: var(--background1);
+}
