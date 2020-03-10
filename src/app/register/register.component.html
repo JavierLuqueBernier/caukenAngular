@@ -4,7 +4,7 @@
                 <div class="col-12" id="logo">
                     <img class="imagotipo" src="../../assets/images/Imagotipo.svg" alt="">
                 </div>
-                <form>
+                <form [formGroup]="formRegister" (ngSubmit)="manejarSubmit()">
                     <fieldset class="borde">
                         <legend  class="w-auto">Email</legend>
                         <input type="text" class="form-control" formControlName="email" placeholder="Escribe tu email...">

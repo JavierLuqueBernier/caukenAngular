@@ -8,13 +8,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  formulario: FormGroup;
+  formRegister: FormGroup;
 
   formularioEnviado: boolean;
 
-  constructor() { 
+  constructor() {
     this.formularioEnviado = false;
-    this.formulario = new FormGroup({
+    this.formRegister = new FormGroup({
       email: new FormControl('', [
         Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)
       ]),
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.formularioEnviado = true;
-    console.log(this.formulario.value);
+    console.log(this.formRegister.value);
   }
 
   passwordValidator(form) {
@@ -46,6 +46,10 @@ export class RegisterComponent implements OnInit {
     } else {
       return { passwordvalidator: true };
     }
+  }
+
+  manejarSubmit(){
+
   }
 
 }
