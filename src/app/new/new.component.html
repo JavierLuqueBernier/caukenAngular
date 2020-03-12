@@ -1,1 +1,47 @@
-<p>new works!</p>
+<div class="container-fluid">
+  <div class="container">
+    <h2>Editor</h2>
+    <form [formGroup]="newPostForm" (ngSubmit)="manejarSubmit()">
+      <div class="form-group">
+        <label for="titulo">Título</label>
+        <input class="form-control" type="text" formControlName="titulo" id="titulo">
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input class="form-control" type="text" formControlName="imagen" id="imagen"></div>
+      <div class="form-group">
+        <label for="imagen">Categoría</label>
+        <input class="form-control" type="text" formControlName="categoria" id="imagen"></div>
+      <div class="form-group">
+        <label for="contenido">Contenido</label>
+        <textarea class="form-control" name="" id="contenido" cols="30" rows="10"
+          formControlName="contenido"></textarea>
+      </div>
+      <fieldset class="colabo radio">
+        <legend>¿Deseas que otros puedan colaborar en tu rama?</legend>
+        <input type="radio" name="colabo" id="colabo" value="colabo" formControlName="colabo" checked="checked">
+        <input type="radio" name="colabo" id="nocolabo" value="nocolabo" formControlName="colabo">
+        <label for="colabo">Sí</label>
+        <label for="nocolabo">No</label>
+
+
+      </fieldset>
+      <fieldset class="tipopub radio">
+        <legend>¿Qué deseas hacer?</legend>
+        <input type="radio" name="publico" id="guardar" value="privado" checked="checked" formControlName="publico">
+        <input type="radio" name="publico" id="publicar" value="publico" formControlName="publico">
+        <input type="radio" name="publico" id="guardarnext" value="guardarnext" formControlName="publico">
+        <input type="radio" name="publico" id="publicarnext" value="publicarnext" formControlName="publico">
+        <label for="guardar">Guardar</label>
+        <label for="publicar">Publicar</label>
+        <label for="guardarnext">Guardar y crear siguiente</label>
+        <label for="publicarnext">Publicar y crear siguiente</label>
+
+      </fieldset>
+
+
+      <input type="submit" value="enviar">
+    </form>
+
+  </div>
+</div>
