@@ -1,11 +1,11 @@
 export class Post {
   id: number;
-  title: string;
-  image: string;
-  content: string;
-  category: string;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  categoria: string;
   autor: string;
-  autors: number;
+  numero_autores: number;
   likes: number;
   constructor(
     pId: number,
@@ -18,12 +18,12 @@ export class Post {
     pLikes: number,
   ) {
     this.id = pId;
-    this.title = pTitle;
-    this.image = pImage;
-    this.content = pContent;
-    this.category = pCategory;
+    this.titulo = pTitle;
+    this.imagen = pImage;
+    this.contenido = pContent;
+    this.categoria = pCategory;
     this.autor = pAutor;
-    this.autors = pAutors;
+    this.numero_autores = pAutors;
     this.likes = pLikes;
   }
 }

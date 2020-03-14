@@ -1,16 +1,14 @@
 <section class="post">
  <header>
-    <h2>Título de Post</h2>
-    <h3><a>Nombre del autor</a></h3>
+    <h2>{{post.titulo}}</h2>
+    <h3><a>nombre de autor, se consigue por id del post</a></h3>
  </header>
   <div class="migas"><div class="miga" *ngFor="let miga of arrMigas"><a class="chapter" ></a></div></div>
   <div class="content">
     <figure>
       <img src="../../assets/images/11.jpg" alt="post.title">
     </figure>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque inventore non, nihil architecto nemo voluptatem autem enim maxime cum voluptas?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, veritatis culpa? Nemo perspiciatis ipsam, odio ipsa culpa tenetur, sint molestiae veritatis, velit enim dolore eaque. Officiis voluptate aliquid deleniti commodi?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium minima non possimus enim dolor voluptate veritatis voluptatum autem molestiae error amet mollitia, tempora a? Ut.</p>
+    {{post.contenido}}
   </div>
   <div class="decision"><app-decision></app-decision></div>
 

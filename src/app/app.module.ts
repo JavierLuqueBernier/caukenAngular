@@ -1,19 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HeroComponent } from './hero/hero.component';
-import { ListaCoversComponent } from './lista-covers/lista-covers.component';
 import { CoverComponent } from './cover/cover.component';
 import { FooterComponent } from './footer/footer.component';
 import { PaginaComponent } from './pagina/pagina.component';
 import { NavComponent } from './nav/nav.component';
-import { NavHomeComponent } from './nav-home/nav-home.component';
-import { NavReaderComponent } from './nav-reader/nav-reader.component';
 import { CommentsComponent } from './comments/comments.component';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
@@ -34,13 +32,10 @@ import { PostComponent } from './post/post.component';
     HomeComponent,
     LoginComponent,
     HeroComponent,
-    ListaCoversComponent,
     CoverComponent,
     FooterComponent,
     PaginaComponent,
     NavComponent,
-    NavHomeComponent,
-    NavReaderComponent,
     CommentsComponent,
     RegisterComponent,
     UserComponent,
@@ -58,7 +53,8 @@ import { PostComponent } from './post/post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
