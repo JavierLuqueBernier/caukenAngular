@@ -1,0 +1,86 @@
+.cover {
+  padding: 1em;
+}
+
+.cover header {}
+
+.cover figure {
+  position: relative;
+  width: 85vw;
+  height: 85vw;
+  margin: 0 auto 1em;
+  overflow: hidden;
+  border-radius: .5rem;
+}
+
+.cover figure img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.cover h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.cover h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.093em;
+}
+
+.cover .coverActions {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.cover .coverActions>* {
+  position: relative;
+}
+
+.cover .coverActions>*>* {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cover .autor {
+  height: 1.5em;
+  width: 25%;
+}
+
+.cover .autor img {
+  display: block;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.cover .share {
+  width: 25%;
+}
+
+.cover .read {
+  width: 50%;
+}
+
+.cover .read a {
+  display: block;
+  font-size: .875rem;
+  text-align: center;
+  text-transform: uppercase;
+  background: var(--background3);
+  padding: .5em 1.5em;
+  width: 8em;
+  border-radius: 1.5em;
+  color: var(--color4);
+}
+
+.cover .content {
+  padding: 1.25rem;
+  line-height: 1.75em;
+}

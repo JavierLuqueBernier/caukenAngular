@@ -20,7 +20,7 @@ const routes: Routes = [
   /* { path: 'page/:firstPageId/:pageId', component: PaginaComponent }, */
   { path: 'page/:pageId', component: PaginaComponent },
  /*  { path: 'page/:firstPageId', component: CoverComponent }, */
-  { path: 'page/:pageId', component: CoverComponent },
+  { path: 'cover/:pageId', component: CoverComponent },
   { path: 'new-branch', component: NewComponent },
   { path: 'new-post', component: NewComponent },
   { path: 'myarea', component: MyAreaComponent },

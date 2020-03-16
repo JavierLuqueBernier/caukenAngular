@@ -1,4 +1,4 @@
-<section class="post">
+<section class="cover">
   <header>
     <figure>
       <img src="../../assets/images/11.jpg" alt="post.title">
@@ -6,12 +6,22 @@
     <h2>{{post.titulo}}</h2>
     <h3><a>Escrito por {{post.autor}}</a></h3>
   </header>
+  <nav class="coverActions">
+    <div class="autor">
+      <img src="../../assets/images/avatarlow.jpg" alt="">
+    </div>
+    <div class="share">
+      <img src="../../assets/images/share.svg" alt="">
+    </div>
+    <div class="read">
+      <a class="">A leer</a>
+    </div>
+  </nav>
+
 
   <div class="content">
-      {{post.contenido}}
+    {{post.contenido}} Se debería mostrar sólo el contenido del primer párrafo
   </div>
-  <div class="decision">
-    <app-decision></app-decision>
-  </div>
+
 
 </section>
