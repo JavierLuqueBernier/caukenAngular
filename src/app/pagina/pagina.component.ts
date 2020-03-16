@@ -12,7 +12,7 @@ export class PaginaComponent implements OnInit {
   arrMigas: any;
   post: Post;
   // La id que recibimos por params
-  firstPageId: number;
+  pageId: number;
 
   constructor(private postService: PostService, private activatedRoute: ActivatedRoute) {
     // El número de migas de pan debería ser limitado, unos 7 o menos sin scroll
@@ -20,11 +20,13 @@ export class PaginaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log('hola')
-    console.log(this.activatedRoute.params._value.firstPageId)
-    this.firstPageId= this.activatedRoute.params._value.firstPageId;
+    console.log('hola');
+    this.activatedRoute.params.subscribe(params=>{
+      this.pageId = params.pageId;
+    });
+
     try {
-      this.post = await this.postService.getById(this.firstPageId);
+      this.post = await this.postService.getById(this.pageId);
     } catch (err) {
       console.log(err)
 

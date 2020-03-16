@@ -8,6 +8,7 @@ import { PaginaComponent } from './pagina/pagina.component';
 import { NewComponent } from './new/new.component';
 import { MyAreaComponent } from './my-area/my-area.component';
 import { CommentsComponent } from './comments/comments.component';
+import { CoverComponent } from './cover/cover.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryTestComponent },
-  { path: 'page/:firstPageId/:pageId', component: PaginaComponent },
+  /* { path: 'page/:firstPageId/:pageId', component: PaginaComponent }, */
+  { path: 'page/:pageId', component: PaginaComponent },
+ /*  { path: 'page/:firstPageId', component: CoverComponent }, */
+  { path: 'page/:pageId', component: CoverComponent },
   { path: 'new-branch', component: NewComponent },
   { path: 'new-post', component: NewComponent },
   { path: 'myarea', component: MyAreaComponent },
