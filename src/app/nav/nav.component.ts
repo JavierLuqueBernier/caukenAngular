@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { IAppState } from '../store';
+import { NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'app-nav',
@@ -8,15 +10,20 @@ import { Location } from '@angular/common';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  @Input() nombreEntorno: string;
+  sectionName: string;
   url: any;
   postRoute: boolean;
 
-  constructor(private location: Location, private router: Router) {
-    router.events.subscribe((val) => {
-      this.url = location.path();
-      this.postRoute = (this.url.slice(0, 5) === '/page') ? true : false;
-      console.log(this.postRoute)
+  constructor(
+    private location: Location,
+    private router: Router,
+    private ngRedux: NgRedux<IAppState>) {
+    // Detecta si está en /pagina o /cover
+    // Habría que cambiarlo por redux
+    router.events.subscribe(() => {
+      this.url = this.location.path();
+      this.postRoute = (this.url.slice(0, 5) === '/page' || this.url.slice(0, 6) === '/cover') ? true : false;
+
     });
 
 
@@ -25,9 +32,18 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Se subscribe a redux para recibir el nombre de la sección enviado desde CoverC
+    this.ngRedux.subscribe(() => {
+      const state = this.ngRedux.getState();
+      this.sectionName = state.sectionName;
+    });
 
 
+  }
 
+  // Va a la página anterior sin recargar angular
+  retroceder() {
+    this.location.back();
   }
 
 }
