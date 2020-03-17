@@ -2,17 +2,19 @@
   <h2>{{tituloSeccion}}</h2>
   <div class="scroller">
     <div class="coverCont" *ngFor="let post of arrPosts">
-      <article class="cover">
-        <div class="imgCont">
-          <img [src]="post.image" alt="">
-        </div>
-        <div class="coverText">
-          <h3>{{post.titulo}}</h3>
-          <p class="hashtags">
-            <span class="hashtag">{{post.categoria}}</span>
-          </p>
-        </div>
-      </article>
+      <a [routerLink]="['/cover', post.id]">
+        <article class="cover">
+          <div class="imgCont">
+            <img [src]="post.image" alt="">
+          </div>
+          <div class="coverText">
+            <h3>{{post.titulo}}</h3>
+            <p class="hashtags">
+              <span class="hashtag">{{post.categoria}}</span>
+            </p>
+          </div>
+        </article>
+      </a>
     </div>
   </div>
 </section>

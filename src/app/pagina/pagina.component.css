@@ -1,5 +1,7 @@
 .post {
-  padding-bottom:1rem;
+  position: relative;
+  padding-bottom:3rem;
+  min-height: calc(100vh - 5rem);
 }
 
 .post header {
@@ -84,7 +86,10 @@
 }
 
 .post .decision{
-  position: relative;
+  position: absolute;
+  bottom:0;
+  left:50%;
+  transform: translateX(-50%);
   width:90%;
   height:2rem;
   margin:0 auto;

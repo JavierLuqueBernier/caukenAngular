@@ -1,7 +1,7 @@
 <section class="cover">
   <header>
     <figure>
-      <img src="../../assets/images/11.jpg" alt="post.title">
+      <img [src]="post.imagen" [alt]="post.titulo">
     </figure>
     <h2>{{post.titulo}}</h2>
     <h3><a>Escrito por {{post.autor}}</a></h3>
@@ -14,7 +14,7 @@
       <img src="../../assets/images/share.svg" alt="">
     </div>
     <div class="read">
-      <a class="">A leer</a>
+      <a [routerLink]="['/page', post.id]" class="">A leer</a>
     </div>
   </nav>
 

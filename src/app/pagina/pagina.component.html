@@ -1,15 +1,21 @@
 <section class="post">
- <header>
+  <header>
     <h2>{{post.titulo}}</h2>
     <h3><a>nombre de autor, se consigue por id del post</a></h3>
- </header>
-  <div class="migas"><div class="miga" *ngFor="let miga of arrMigas"><a class="chapter" ></a></div></div>
+  </header>
+  <div class="migas">
+    <div class="miga" *ngFor="let miga of arrMigas">
+      <a class="chapter"></a>
+    </div>
+  </div>
   <div class="content">
     <figure>
-      <img src="../../assets/images/11.jpg" alt="post.title">
+      <img [src]="post.imagen" [alt]="post.titulo">
     </figure>
     {{post.contenido}}
   </div>
-  <div class="decision"><app-decision></app-decision></div>
+  <div class="decision">
+    <app-decision></app-decision>
+  </div>
 
 </section>

@@ -9,7 +9,9 @@
   scrollbar-width: none;
 }
 
-.coverCont {}
+.coverCont a{
+  display: block;
+}
 
 .cover {
   width: 168px;
