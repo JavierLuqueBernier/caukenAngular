@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,9 @@ export class RegisterComponent implements OnInit {
 
   formularioEnviado: boolean;
 
-  constructor() {
+  errores: any;
+
+  constructor(private userService: UserService) {
     this.formularioEnviado = false;
     this.formRegister = new FormGroup({
       email: new FormControl('', [
@@ -27,6 +30,7 @@ export class RegisterComponent implements OnInit {
       ]),
       repite_password: new FormControl()
     }, [this.passwordValidator]);
+    this.errores = [];
   }
 
   ngOnInit() {
@@ -34,7 +38,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.formularioEnviado = true;
-    console.log(this.formRegister.value);
+    this.userService.registro(this.formRegister.value)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      this.errores = err.error;
+    });
   }
 
   passwordValidator(form) {
