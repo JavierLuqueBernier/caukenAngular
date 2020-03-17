@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(30)
       ]),
       password: new FormControl('', [
-        Validators.pattern(/^(?=.*\d).{4,8}$/)
+        Validators.pattern(/^([a-zA-Z0-9@*#]{8,15})$/)
       ]),
       repite_password: new FormControl()
     }, [this.passwordValidator]);
