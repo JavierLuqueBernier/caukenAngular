@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container-fluid">
+    <div class="container" id="formulario">
+        <div class="row">
+                <div class="col-12" id="logo">
+                    <img class="imagotipo" src="../../assets/images/Imagotipo.svg" alt="">
+                </div>
+                <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+                    <fieldset class="borde">
+                        <legend  class="w-auto">Usuario</legend>
+                        <input type="text" class="form-control" formControlName="nombre" placeholder="Escribe tu nombre de usuario...">
+                    </fieldset>
+                    <fieldset class="borde">
+                        <legend  class="w-auto">Contraseña</legend>
+                        <input type="text" class="form-control" formControlName="password" placeholder="Escribe tu contraseña...">
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary">REGÍSTRATE</button>
+                    
+                    <button type="submit" class="btn btn-primary">INICIAR SESIÓN</button>
+
+                    <p class="error" *ngIf="formularioEnviado && !formLogin.valid"> Uy! Parece que algún campo no está bien relleno!</p>
+                </form>
+        </div>
+    </div>
+</div>
