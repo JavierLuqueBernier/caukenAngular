@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   formularioEnviado: boolean;
 
-  constructor() { 
+  constructor(private userService: UserService) { 
     this.formularioEnviado = false;
     this.formLogin = new FormGroup({
       nombre: new FormControl('', [
@@ -26,6 +27,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.userService.login(this.formLogin.value)
+    .then(response => {
+      console.log(response['success']);
+      localStorage.setItem('token', response['success']);
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
 }
