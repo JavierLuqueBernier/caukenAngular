@@ -12,7 +12,7 @@ export class CoverComponent implements OnInit {
   pageId: number;
   post: Post;
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
-    this.post = new Post(3, 'Título Post', 'https://picsum.photos/200/300', 'Contenido del post...', '#Categoría', 'Autor del Post', 33, 50)
+    this.post = new Post(3, '¡Post no encontrado!', '../../assets/images/24.jpg', 'Parece que el post que estabas buscando no existe...', '#Categoría', 'Cauken', 0, 0);
   }
 
   async ngOnInit() {

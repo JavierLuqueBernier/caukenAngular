@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Post } from './models/post';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -22,4 +21,24 @@ export class PostService {
   getById(id): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}`).toPromise();
   }
+
+  getCovers(parameters): Promise<any> {
+    console.log('' + parameters);
+    return this.httpClient.post(`${this.baseUrl}/covers`, parameters ).toPromise();
+  }
+
+  /*  dummy(idAlumno: string): Promise<any> {
+     const httpOptions = {
+       headers: new HttpHeaders({
+         'Content-Type': 'application/json'
+       }),
+       body: {
+         studentId: idAlumno
+       }
+     };
+     return this.httpClient.delete(this.baseUrl, httpOptions).toPromise();
+     //Delete por URL
+     /*  return this.httpClient.delete(this.baseUrl+`/${idAlumno}`).toPromise(); */
 }
+
+
