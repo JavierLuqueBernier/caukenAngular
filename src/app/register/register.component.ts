@@ -48,8 +48,4 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  manejarSubmit(){
-
-  }
-
 }
