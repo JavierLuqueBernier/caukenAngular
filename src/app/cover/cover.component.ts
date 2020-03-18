@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { SECTION_NAME } from '../actions';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cover',
@@ -14,11 +15,12 @@ import { SECTION_NAME } from '../actions';
 export class CoverComponent implements OnInit {
   pageId: number;
   post: Post;
+  urlName: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
     private ngRedux: NgRedux<IAppState>,
-    ) {
+    private location: Location) {
     this.post = new Post(3, '¡Post no encontrado!', '../../assets/images/24.jpg', 'Parece que el post que estabas buscando no existe...', '#Categoría', 'Cauken', 0, 0);
   }
 
@@ -36,7 +38,10 @@ export class CoverComponent implements OnInit {
       type: SECTION_NAME,
       sectionName: this.post.titulo,
 
-    })
+    });
+    // Esto cambia el nombre de la url por el título del árbol
+    this.urlName = this.post.titulo.replace(/ /g, '-').toLowerCase();
+    this.location.replaceState(this.urlName);
 
   }
 
