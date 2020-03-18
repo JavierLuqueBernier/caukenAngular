@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store';
+import { LOGIN_ACTIVE } from '../actions';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,10 @@ export class LoginComponent implements OnInit {
 
   formularioEnviado: boolean;
 
-  constructor(private userService: UserService) { 
+  constructor(
+    private userService: UserService,
+    private ngRedux: NgRedux<IAppState>
+  ) {
     this.formularioEnviado = false;
     this.formLogin = new FormGroup({
       nombre: new FormControl('', [
@@ -27,17 +33,28 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ngRedux.dispatch({
+      type: LOGIN_ACTIVE,
+      loginActive: true
+    });
   }
 
   onSubmit() {
     this.userService.login(this.formLogin.value)
-    .then(response => {
-      console.log(response['success']);
-      localStorage.setItem('token', response['success']);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+      .then(response => {
+        console.log(response['success']);
+        localStorage.setItem('token', response['success']);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
+
+/*   ngOnDestroy(){
+    this.ngRedux.dispatch({
+      type: LOGIN_ACTIVE,
+      loginActive: false;
+    });
+  } */
 
 }

@@ -1,1 +1,3 @@
 export const SECTION_NAME = 'SECTION_NAME';
+export const REGISTER_ACTIVE = 'REGISTER_ACTIVE';
+export const LOGIN_ACTIVE = 'LOGIN_ACTIVE';

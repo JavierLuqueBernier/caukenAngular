@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store';
+import { REGISTER_ACTIVE } from '../actions';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +18,10 @@ export class RegisterComponent implements OnInit {
 
   errores: any;
 
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService,
+    private ngRedux: NgRedux<IAppState>,
+  ) {
     this.formularioEnviado = false;
     this.formRegister = new FormGroup({
       email: new FormControl('', [
@@ -34,17 +40,22 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ngRedux.dispatch({
+      type: REGISTER_ACTIVE,
+      registerActive: true,
+
+    });
   }
 
   onSubmit() {
     this.formularioEnviado = true;
     this.userService.registro(this.formRegister.value)
-    .then(response => {
-      console.log(response);
-    })
-    .catch(err => {
-      this.errores = err.error;
-    });
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        this.errores = err.error;
+      });
   }
 
   passwordValidator(form) {
@@ -56,6 +67,15 @@ export class RegisterComponent implements OnInit {
     } else {
       return { passwordvalidator: true };
     }
+  }
+
+  ngOnDestroy() {
+    this.ngRedux.dispatch({
+      type: REGISTER_ACTIVE,
+      registerActive: false,
+
+    });
+
   }
 
 }

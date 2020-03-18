@@ -13,6 +13,9 @@ export class NavComponent implements OnInit {
   sectionName: string;
   url: any;
   postRoute: boolean;
+  registerActive: boolean;
+  loginActive: boolean;
+  ocultar: boolean;
 
   constructor(
     private location: Location,
@@ -20,6 +23,7 @@ export class NavComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>) {
     // Detecta si está en /pagina o /cover
     // Habría que cambiarlo por redux
+    this.ocultar = false;
     router.events.subscribe(() => {
       this.url = this.location.path();
       this.postRoute = (this.url.slice(0, 5) === '/page' || this.url.slice(0, 6) === '/cover') ? true : false;
@@ -36,10 +40,20 @@ export class NavComponent implements OnInit {
     this.ngRedux.subscribe(() => {
       const state = this.ngRedux.getState();
       this.sectionName = state.sectionName;
+      if (state.registerActive || state.loginActive) {
+        this.ocultar = true;
+      } else {
+        this.ocultar = false;
+      }
+
     });
 
 
+
+
   }
+
+
 
   // Va a la página anterior sin recargar angular
   retroceder() {
