@@ -27,6 +27,11 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/covers`, parameters).toPromise();
   }
 
+  getChildren(parameters): Promise<any> {
+    console.log('' + parameters);
+    return this.httpClient.post(`${this.baseUrl}/children`, parameters).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);
