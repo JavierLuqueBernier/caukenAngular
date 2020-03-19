@@ -1,9 +1,10 @@
-import { SECTION_NAME, REGISTER_ACTIVE, LOGIN_ACTIVE, ROUTE_AFTER } from './actions';
+import { SECTION_NAME, REGISTER_ACTIVE, LOGIN_ACTIVE, DECISION_ACTIVE, ROUTE_AFTER } from './actions';
 import { tassign } from 'tassign';
 
 export interface IAppState {
   sectionName: string;
   registerActive: boolean;
+  decisionActive: boolean;
   loginActive: boolean;
   // Es volver a la ruta en la que estábamos tras hacer login;
   routeAfter: string;
@@ -15,6 +16,7 @@ export const INITIAL_STATE: IAppState = {
   sectionName: '',
   registerActive: false,
   loginActive: false,
+  decisionActive: false,
   routeAfter: ''
 };
 
@@ -31,6 +33,9 @@ export function rootReducer(state, action): IAppState {
     }
     case LOGIN_ACTIVE: {
       return tassign(state, { loginActive: action.loginActive });
+    }
+    case DECISION_ACTIVE: {
+      return tassign(state, { decisionActive: action.decisionActive });
     }
     case ROUTE_AFTER: {
       return tassign(state, { routeAfter: action.routeAfter });
