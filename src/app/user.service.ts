@@ -26,7 +26,7 @@ export class UserService {
     console.log(usuario);
     console.log(token);
     const body = {
-      'user-token': token,
+      usertoken: token,
       id: usuario
     }
     return this.httpClient.post(`${this.baseUrl}/checktoken`, body).toPromise();

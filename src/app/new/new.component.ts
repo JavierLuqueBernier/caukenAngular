@@ -64,6 +64,7 @@ Está preparado en dos campos ocultos latitud y longitud */
     async ngOnInit() {
     // Se comprueba si el token es válido, si no navega a login. Independientemente el token se comprobará de nuevo al enviar el post.
     const login = await this.userService.checkToken();
+    console.log('hola')
     console.log(login);
     if (login['login'] === false) {
       // Si el login no es válido se almacena en redux esta dirección para que el login pueda retornar aquí cuando valide
