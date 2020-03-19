@@ -9,6 +9,7 @@ import { NewComponent } from './new/new.component';
 import { MyAreaComponent } from './my-area/my-area.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CoverComponent } from './cover/cover.component';
+import { DecisionComponent } from './decision/decision.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'new-post', component: NewComponent },
   { path: 'myarea', component: MyAreaComponent },
   { path: 'comments', component: CommentsComponent },
+  { path: 'decision', component: DecisionComponent },
   { path: '**', redirectTo: '/' }
 ];
 
