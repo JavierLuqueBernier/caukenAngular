@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private ngRedux: NgRedux<IAppState>,
-    private router: Router
+    private router: Router,
+    private ngRedux: NgRedux<IAppState>
   ) {
     this.formularioEnviado = false;
     this.formLogin = new FormGroup({
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [
         Validators.pattern(/^(?=.*\d).{4,8}$/)
       ]),
-    })
+    });
   }
 
   ngOnInit() {
@@ -44,8 +44,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.formLogin.value)
       .then(response => {
-        console.log(response['success']);
+        console.log(response);
         localStorage.setItem('token', response['success']);
+        localStorage.setItem('usuario', response['usuario']);
+
+        // se obtiene la ruta de la que se venía antes de hacer login y se navega:
+        const ruta = this.ngRedux.getState().routeAfter;
+        this.router.navigate([ruta]);
+
       })
       .catch(err => {
         console.log(err);
@@ -57,11 +63,11 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-/*   ngOnDestroy(){
-    this.ngRedux.dispatch({
-      type: LOGIN_ACTIVE,
-      loginActive: false;
-    });
-  } */
+  /*   ngOnDestroy(){
+      this.ngRedux.dispatch({
+        type: LOGIN_ACTIVE,
+        loginActive: false;
+      });
+    } */
 
 }

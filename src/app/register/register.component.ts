@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
+  OnDestroy() {
     this.ngRedux.dispatch({
       type: REGISTER_ACTIVE,
       registerActive: false,
