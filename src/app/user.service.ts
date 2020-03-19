@@ -8,7 +8,7 @@ export class UserService {
 
   baseUrl: string;
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/api/users';
   }
 
@@ -19,5 +19,18 @@ export class UserService {
   login(formValues) {
     return this.httpClient.post(`${this.baseUrl}/login`, formValues).toPromise();
   }
-  
+
+  checkToken() {
+    const token = localStorage.getItem('token');
+    const usuario = localStorage.getItem('usuario');
+    console.log(usuario);
+    console.log(token);
+    const body = {
+      'user-token': token,
+      id: usuario
+    }
+    return this.httpClient.post(`${this.baseUrl}/checktoken`, body).toPromise();
+
+  }
+
 }

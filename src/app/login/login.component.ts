@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { LOGIN_ACTIVE } from '../actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private router: Router,
     private ngRedux: NgRedux<IAppState>
   ) {
     this.formularioEnviado = false;
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [
         Validators.pattern(/^(?=.*\d).{4,8}$/)
       ]),
-    })
+    });
   }
 
   ngOnInit() {
@@ -42,19 +44,25 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.formLogin.value)
       .then(response => {
-        console.log(response['success']);
+        console.log(response);
         localStorage.setItem('token', response['success']);
+        localStorage.setItem('usuario', response['usuario']);
+
+        // se obtiene la ruta de la que se venía antes de hacer login y se navega:
+        const ruta = this.ngRedux.getState().routeAfter;
+        this.router.navigate([ruta]);
+
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-/*   ngOnDestroy(){
-    this.ngRedux.dispatch({
-      type: LOGIN_ACTIVE,
-      loginActive: false;
-    });
-  } */
+  /*   ngOnDestroy(){
+      this.ngRedux.dispatch({
+        type: LOGIN_ACTIVE,
+        loginActive: false;
+      });
+    } */
 
 }
