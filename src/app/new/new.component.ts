@@ -45,7 +45,7 @@ export class NewComponent implements OnInit {
       ]),
       longitud: new FormControl(null, [
       ]),
-      //En estos tres campos el valor hay que obtenerlo del usuario y del post padre.
+      // En estos tres campos el valor hay que obtenerlo del usuario y del post padre.
       fk_id_anterior: new FormControl(null, [
       ]),
       fk_usuario: new FormControl('2', [
@@ -56,8 +56,8 @@ export class NewComponent implements OnInit {
 
     });
   }
-    //se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
-    //Está preparado en dos campos ocultos latitud y longitud
+/* se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
+Está preparado en dos campos ocultos latitud y longitud */
 
     async ngOnInit() {
     // Se comprueba si el token es válido, si no navega a login. Independientemente el token se comprobará de nuevo al enviar el post.

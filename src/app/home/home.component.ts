@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
       routeAfter: '/home',
 
     });
-    this.router.navigate(['/new-post'])
+    this.router.navigate(['/new-post']);
   }
 
 }

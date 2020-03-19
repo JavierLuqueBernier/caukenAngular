@@ -5,7 +5,7 @@ export interface IAppState {
   sectionName: string;
   registerActive: boolean;
   loginActive: boolean;
-  //Es volver a la ruta en la que estábamos tras hacer login;
+  // Es volver a la ruta en la que estábamos tras hacer login;
   routeAfter: string;
 
 
@@ -33,7 +33,7 @@ export function rootReducer(state, action): IAppState {
       return tassign(state, { loginActive: action.loginActive });
     }
     case ROUTE_AFTER: {
-      return tassign(state, { routeAfter: action.routeAfter })
+      return tassign(state, { routeAfter: action.routeAfter });
     }
   }
   return state;
