@@ -35,7 +35,10 @@ export class PostService {
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);
-    return this.httpClient.post(this.baseUrl, newPostForm).toPromise();
+    newPostForm.id = localStorage.getItem('usuario');
+    newPostForm['user-token'] = localStorage.getItem('token');
+    console.log(newPostForm)
+    return this.httpClient.post(`${this.baseUrl}/create`, newPostForm).toPromise();
   }
   /*  dummy(idAlumno: string): Promise<any> {
      const httpOptions = {

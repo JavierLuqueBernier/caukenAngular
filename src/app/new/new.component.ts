@@ -15,12 +15,14 @@ import { ROUTE_AFTER } from '../actions';
 export class NewComponent implements OnInit {
   newPostForm: FormGroup;
   errors: any;
+ usuario:string;
   constructor(
     private postService: PostService,
     private userService: UserService,
     private router: Router,
     private ngRedux: NgRedux<IAppState>
   ) {
+    this.usuario = localStorage.getItem('usuario');
     this.newPostForm = new FormGroup({
       titulo: new FormControl('', [
         Validators.required,
@@ -48,7 +50,7 @@ export class NewComponent implements OnInit {
       // En estos tres campos el valor hay que obtenerlo del usuario y del post padre.
       fk_id_anterior: new FormControl(null, [
       ]),
-      fk_usuario: new FormControl('2', [
+      fk_usuario: new FormControl(this.usuario, [
       ]),
       fk_ancestro: new FormControl(null, [
 

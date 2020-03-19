@@ -12,15 +12,15 @@ export class UserService {
     this.baseUrl = 'http://localhost:3000/api/users';
   }
 
-  registro(formValues) {
+  registro(formValues): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/register`, formValues).toPromise();
   }
 
-  login(formValues) {
+  login(formValues): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/login`, formValues).toPromise();
   }
 
-  checkToken() {
+  checkToken(): Promise<any> {
     const token = localStorage.getItem('token');
     const usuario = localStorage.getItem('usuario');
     console.log(usuario);
