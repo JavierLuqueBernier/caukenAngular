@@ -10,8 +10,11 @@
   --background2: #e9e9e9;
   --background3: #e8644a;
   --background4: #888;
-  --background5:#77cc99;
+  --background5: #77cc99;
+  --background6: #7c98;
+  --background7: #dd4422;
   --shadow1: #0f0f0f88;
+  --shadow2: #0f0f0f33;
 }
 
 * {

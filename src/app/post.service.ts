@@ -24,9 +24,14 @@ export class PostService {
 
   getCovers(parameters): Promise<any> {
     console.log('' + parameters);
-    return this.httpClient.post(`${this.baseUrl}/covers`, parameters ).toPromise();
+    return this.httpClient.post(`${this.baseUrl}/covers`, parameters).toPromise();
   }
 
+
+  create(newPostForm): Promise<any> {
+    console.log(newPostForm);
+    return this.httpClient.post(this.baseUrl, newPostForm).toPromise();
+  }
   /*  dummy(idAlumno: string): Promise<any> {
      const httpOptions = {
        headers: new HttpHeaders({

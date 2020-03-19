@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-new',
@@ -8,28 +9,64 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class NewComponent implements OnInit {
   newPostForm: FormGroup;
-  constructor() {
+  errors: any;
+  constructor(
+    private postService: PostService,
+  ) {
     this.newPostForm = new FormGroup({
-      titulo: new FormControl(),
-      imagen: new FormControl(),
-      categoria: new FormControl(),
-      contenido: new FormControl(),
-      colabo: new FormControl(),
-      publico: new FormControl(),
+      titulo: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(50)
+      ]),
+      imagen: new FormControl('', [
+        Validators.maxLength(255)
+      ]),
+      categoria: new FormControl('', [
+        Validators.maxLength(50)
+      ]),
+      contenido: new FormControl('', [
+        Validators.maxLength(4096)
+      ]),
+      colaborable: new FormControl('colabo', [
+
+      ]),
+
+      publico: new FormControl('publico', [
+      ]),
+      latitud: new FormControl(null, [
+      ]),
+      longitud: new FormControl(null, [
+      ]),
+      //En estos tres campos el valor hay que obtenerlo del usuario y del post padre.
+      fk_id_anterior: new FormControl(null, [
+      ]),
+      fk_usuario: new FormControl('2', [
+      ]),
+      fk_ancestro: new FormControl(null, [
+
+      ]),
+
     });
   }
 
   ngOnInit() {
+    //se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
+    //Está preparado en dos campos ocultos latitud y longitud
   }
 
-  manejarSubmit() {
+  async manejarSubmit() {
     console.log(this.newPostForm.value);
-    const formulario = this.newPostForm.value;
-    if (formulario.publico === 'guardarnext') {
-      formulario.publico = 'privado';
-    } else if (formulario.publico === 'publicarnext') {
-      formulario.publico = 'publico';
+    const newPostForm = this.newPostForm.value;
+    if (newPostForm.publico === 'guardarnext') {
+      newPostForm.publico = 'privado';
+    } else if (newPostForm.publico === 'publicarnext') {
+      newPostForm.publico = 'publico';
     }
-    console.log(formulario);
+    try {
+      await this.postService.create(newPostForm);
+    } catch (err) {
+      this.errors = err;
+
+    }
   }
 }

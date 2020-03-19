@@ -1,47 +1,78 @@
 <div class="container-fluid">
   <div class="container">
-    <h2>Editor</h2>
+    <h2>¡Estás creando!</h2>
     <form [formGroup]="newPostForm" (ngSubmit)="manejarSubmit()">
+
       <div class="form-group">
-        <label for="titulo">Título</label>
+        <label for="titulo">
+          Título: <span class="error"
+            *ngIf=" newPostForm.controls.titulo.errors?.required && newPostForm.controls.titulo.touched">El
+            título es obligatorio</span>
+          <span class="error"
+            *ngIf=" newPostForm.controls.titulo.errors?.maxlength  && newPostForm.controls.titulo.dirty">
+            Máximo {{newPostForm.controls.titulo.errors?.maxlength.requiredLength}} caracteres</span>
+        </label>
         <input class="form-control" type="text" formControlName="titulo" id="titulo">
       </div>
+
       <div class="form-group">
-        <label for="imagen">Imagen</label>
+        <label for="imagen">
+          Imagen: <span class="error"
+            *ngIf=" newPostForm.controls.imagen.errors?.maxlength  && newPostForm.controls.imagen.dirty">
+            Máximo {{newPostForm.controls.imagen.errors?.maxlength.requiredLength}} caracteres</span>
+        </label>
         <input class="form-control" type="text" formControlName="imagen" id="imagen"></div>
+
       <div class="form-group">
-        <label for="imagen">Categoría</label>
-        <input class="form-control" type="text" formControlName="categoria" id="imagen"></div>
+        <label for="imagen">
+          Categoría: <span class="error"
+            *ngIf=" newPostForm.controls.categoria.errors?.maxlength  && newPostForm.controls.categoria.dirty">
+            Máximo {{newPostForm.controls.categoria.errors?.maxlength.requiredLength}} caracteres</span>
+        </label>
+        <input class="form-control" type="text" formControlName="categoria" id="categoria">
+
+      </div>
       <div class="form-group">
-        <label for="contenido">Contenido</label>
+        <label for="contenido">
+          Contenido: <span class="error"
+            *ngIf=" newPostForm.controls.contenido.errors?.maxlength  && newPostForm.controls.contenido.dirty">
+            Máximo {{newPostForm.controls.contenido.errors?.maxlength.requiredLength}} caracteres</span>
+        </label>
         <textarea class="form-control" name="" id="contenido" cols="30" rows="10"
           formControlName="contenido"></textarea>
       </div>
+
       <fieldset class="colabo radio">
         <legend>¿Deseas que otros puedan colaborar en tu rama?</legend>
-        <input type="radio" name="colabo" id="colabo" value="colabo" formControlName="colabo" checked="checked">
-        <input type="radio" name="colabo" id="nocolabo" value="nocolabo" formControlName="colabo">
+        <input type="radio" name="colaborable" id="colabo" value="colabo" formControlName="colaborable" [checked]="true">
+        <input type="radio" name="colaborable" id="nocolabo" value="nocolabo" formControlName="colaborable">
         <label for="colabo">Sí</label>
         <label for="nocolabo">No</label>
-
-
       </fieldset>
+
       <fieldset class="tipopub radio">
         <legend>¿Qué deseas hacer?</legend>
-        <input type="radio" name="publico" id="guardar" value="privado" checked="checked" formControlName="publico">
-        <input type="radio" name="publico" id="publicar" value="publico" formControlName="publico">
+        <input type="radio" name="publico" id="publicar" value="publico" [checked]="true" formControlName="publico">
+        <input type="radio" name="publico" id="guardar" value="privado" formControlName="publico">
         <input type="radio" name="publico" id="guardarnext" value="guardarnext" formControlName="publico">
         <input type="radio" name="publico" id="publicarnext" value="publicarnext" formControlName="publico">
-        <label for="guardar">Guardar</label>
         <label for="publicar">Publicar</label>
+        <label for="guardar">Guardar</label>
         <label for="guardarnext">Guardar y crear siguiente</label>
         <label for="publicarnext">Publicar y crear siguiente</label>
-
       </fieldset>
 
+      <input type="hidden" name="fk_id_anterior" formControlName="fk_id_anterior">
+      <input type="hidden" name="latitud" formControlName="latitud">
+      <input type="hidden" name="longitud" formControlName="longitud">
+      <input type="hidden" name="fk_usuario" formControlName="fk_usuario">
+      <input type="hidden" name="fk_ancestro" formControlName="fk_ancestro">
 
-      <input type="submit" value="enviar">
+
+      <div class="submit">
+        <input type="submit" value="enviar" [disabled]="!newPostForm.valid" [ngClass]="{'disabled':!newPostForm.valid}">
+        </div>
+
     </form>
-
   </div>
 </div>
