@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { LOGIN_ACTIVE } from '../actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private ngRedux: NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>,
+    private router: Router
   ) {
     this.formularioEnviado = false;
     this.formLogin = new FormGroup({
@@ -48,6 +50,11 @@ export class LoginComponent implements OnInit {
       .catch(err => {
         console.log(err);
       });
+    this.router.navigate(['/home']);
+  }
+
+  dirigirRegister() {
+    this.router.navigate(['/register']);
   }
 
 /*   ngOnDestroy(){
