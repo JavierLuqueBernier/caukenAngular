@@ -15,6 +15,7 @@ export class NavComponent implements OnInit {
   postRoute: boolean;
   registerActive: boolean;
   loginActive: boolean;
+  decisionActive: boolean;
   ocultar: boolean;
 
   constructor(
@@ -40,7 +41,7 @@ export class NavComponent implements OnInit {
     this.ngRedux.subscribe(() => {
       const state = this.ngRedux.getState();
       this.sectionName = state.sectionName;
-      if (state.registerActive || state.loginActive) {
+      if (state.registerActive || state.loginActive || state.decisionActive) {
         this.ocultar = true;
       } else {
         this.ocultar = false;
