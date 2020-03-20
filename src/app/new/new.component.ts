@@ -15,7 +15,7 @@ import { ROUTE_AFTER } from '../actions';
 export class NewComponent implements OnInit {
   newPostForm: FormGroup;
   errors: any;
- usuario:string;
+  usuario: string;
   constructor(
     private postService: PostService,
     private userService: UserService,
@@ -58,10 +58,10 @@ export class NewComponent implements OnInit {
 
     });
   }
-/* se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
-Está preparado en dos campos ocultos latitud y longitud */
+  /* se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
+  Está preparado en dos campos ocultos latitud y longitud */
 
-    async ngOnInit() {
+  async ngOnInit() {
     // Se comprueba si el token es válido, si no navega a login. Independientemente el token se comprobará de nuevo al enviar el post.
     const login = await this.userService.checkToken();
     console.log('hola')
@@ -87,7 +87,10 @@ Está preparado en dos campos ocultos latitud y longitud */
       newPostForm.publico = 'publico';
     }
     try {
-      await this.postService.create(newPostForm);
+      const response = await this.postService.create(newPostForm);
+      console.log(response);
+      window.scrollTo(0, 0);
+      this.router.navigate([`/page/${response.id}`])
     } catch (err) {
       this.errors = err;
 
