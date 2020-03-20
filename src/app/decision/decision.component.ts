@@ -26,7 +26,7 @@ export class DecisionComponent implements OnInit {
       loginActive: true
     });
 
-    this.postService.getChildren()
+    this.postService.getChildren(posts.id) //esto esta mal pero no se como arreglarlo, de donde saco el posts.id??
     .then( response => {
       console.log(response);
       this.arrDecisions = response;
