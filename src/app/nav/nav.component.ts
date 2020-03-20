@@ -17,6 +17,7 @@ export class NavComponent implements OnInit {
   loginActive: boolean;
   decisionActive: boolean;
   ocultar: boolean;
+  desplegar: boolean;
 
   constructor(
     private location: Location,
@@ -30,6 +31,7 @@ export class NavComponent implements OnInit {
       this.postRoute = (this.url.slice(0, 5) === '/page' || this.url.slice(0, 6) === '/cover') ? true : false;
 
     });
+    this.desplegar = false;
 
 
 
@@ -54,6 +56,16 @@ export class NavComponent implements OnInit {
 
   }
 
+  desplegarMenu() {
+    this.desplegar = !this.desplegar;
+
+  }
+
+  irSeccion($event) {
+
+
+
+  }
 
 
   // Va a la página anterior sin recargar angular

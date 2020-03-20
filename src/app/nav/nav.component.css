@@ -4,13 +4,59 @@ nav {
   left: 0;
   width: 100%;
   background: var(--background2);
-  box-shadow: 1px 1px 3px var(--shadow1);
   height: fit-content;
   z-index: 100;
   padding: .75em 1em;
+  filter: drop-shadow(1px 1px 3px var(--shadow1));
 }
 
-.hamburguer {}
+.hamburguer {
+  position: relative;
+}
+
+.hamburguer img {
+  cursor: pointer;
+}
+
+.hamburguer .submenu {
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  font-size: 1.25rem;
+  background: var(--background2);
+  height: 0em;
+  overflow: hidden;
+  padding: 0em 1em;
+  transition: .25s;
+  border-radius: 0 0 1em 0em;
+}
+
+.hamburguer .submenu.replegar {
+  height: 0em;
+  padding: 0em 1em;
+}
+
+.hamburguer .submenu.desplegar {
+  height: 5.5em;
+  padding: .5em 1em;
+}
+
+.hamburguer ul, .hamburguer nav li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+.hamburguer li {
+  transition: .1s;
+  border-radius:1em;
+}
+
+.submenu li:hover {
+  background: var(--color3)
+}
 
 .section-title {}
 
@@ -32,16 +78,15 @@ nav {
 }
 
 .search input::after {
- content:'dsfdsfs';
- display: block;
- position: absolute;
- background:red;
- bottom:0;
- width:100%;
- height:20px;
- border-bottom: 2px solid var(--color1);
- z-index:300;
-
+  content: 'dsfdsfs';
+  display: block;
+  position: absolute;
+  background: red;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  border-bottom: 2px solid var(--color1);
+  z-index: 300;
 }
 
 .search:hover input {
@@ -69,9 +114,7 @@ nav {
   border-radius: 50%;
 }
 
-nav ul li:first-child {
-  background: yellow;
-}
+nav ul li:first-child {}
 
 nav ul li:nth-child(2) {}
 

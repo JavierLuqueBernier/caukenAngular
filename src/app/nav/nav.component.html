@@ -1,13 +1,33 @@
-<nav class="container-fluid" *ngIf="!ocultar">
+<nav class="container-fluid navSup" *ngIf="!ocultar">
 
   <div class="row">
     <div class="col-2 hamburguer">
-      <a *ngIf="!postRoute"><img src="../../assets/images/hamburguer.svg" alt=""></a>
-      <a *ngIf="postRoute" (click)="retroceder()"><img src="../../assets/images/back-arrow.svg" alt=""></a>
+      <ul>
+        <li *ngIf="!postRoute">
+          <a (click)="desplegarMenu()">
+            <img src="../../assets/images/hamburguer.svg" alt="">
+          </a>
+          <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
+            <li (click)="irSeccion($event)">Inicio</li>
+            <li (click)="irSeccion($event)" >Búsqueda</li>
+            <li (click)="irSeccion($event)">Mi area</li>
+          </ul>
+        </li>
+        <li *ngIf="postRoute">
+          <a (click)="retroceder()">
+            <img src="../../assets/images/back-arrow.svg" alt="">
+          </a>
+        </li>
+      </ul>
     </div>
-    <div *ngIf="!postRoute" class="col-5 section-title"><h2>Sección</h2></div>
-    <div *ngIf="postRoute" class="col-5 section-title"><h2>{{sectionName}}</h2></div>
-    <div class="col-3 search"><input type="text"><button><img src="../../assets/images/search.svg" alt=""></button></div>
+    <div *ngIf="!postRoute" class="col-5 section-title">
+      <h2>{{sectionName}}</h2>
+    </div>
+    <div *ngIf="postRoute" class="col-5 section-title">
+      <h2>{{sectionName}}</h2>
+    </div>
+    <div class="col-3 search"><input type="text"><button><img src="../../assets/images/search.svg" alt=""></button>
+    </div>
     <div class="col-2 user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
   </div>
 </nav>

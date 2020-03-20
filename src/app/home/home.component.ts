@@ -3,7 +3,7 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
-import { ROUTE_AFTER } from '../actions';
+import { ROUTE_AFTER, SECTION_NAME } from '../actions';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,13 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.ngRedux.dispatch({
+      type: SECTION_NAME,
+      sectionName: 'Inicio'
+
+
+    });
   }
 
   async crearPostBtn() {
@@ -26,8 +33,11 @@ export class HomeComponent implements OnInit {
       type: ROUTE_AFTER,
       routeAfter: '/home',
 
+
     });
     this.router.navigate(['/new-post']);
   }
+
+
 
 }
