@@ -1,4 +1,10 @@
 <div class="decisin">
     <p>¿Qué deseas hacer?</p>
-    <article *ngFor></article>
+    <article *ngFor="let decision of arrDecisions">
+        <a href="" [routerLink]="['/page', post.id]">
+            <img [src]= "decision.imagen"  alt="">
+            <h3>{{ decision.titulo }}</h3>
+            <p>{{ decision.nombre}}</p>
+        </a>
+    </article>
 </div>
