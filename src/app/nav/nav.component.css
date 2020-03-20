@@ -26,19 +26,19 @@ nav {
   background: var(--background2);
   height: 0em;
   overflow: hidden;
-  padding: 0em 1em;
+  padding: 0em 0em;
   transition: .25s;
-  border-radius: 0 0 1em 0em;
+  border-radius: 0 0 1em 0;
 }
 
 .hamburguer .submenu.replegar {
   height: 0em;
-  padding: 0em 1em;
+  padding: 0em 0em;
 }
 
 .hamburguer .submenu.desplegar {
-  height: 5.5em;
-  padding: .5em 1em;
+  height: 6em;
+  padding: .5em 0em;
 }
 
 .hamburguer ul, .hamburguer nav li {
@@ -46,16 +46,17 @@ nav {
   padding: 0;
   list-style: none;
   text-align: center;
-  width: 100%;
+  min-width: 100%;
 }
 
 .hamburguer li {
   transition: .1s;
-  border-radius:1em;
+  padding:.125em 1em;
 }
 
 .submenu li:hover {
-  background: var(--color3)
+  background: var(--color3);
+  color:var(--color4)
 }
 
 .section-title {}

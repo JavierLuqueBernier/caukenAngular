@@ -5,7 +5,8 @@
       <ul>
         <li *ngIf="!postRoute">
           <a (click)="desplegarMenu()">
-            <img src="../../assets/images/hamburguer.svg" alt="">
+            <img src="../../assets/images/hamburguer.svg" alt="icon" *ngIf="!desplegar">
+            <img src="../../assets/images/close.svg" alt="icon" *ngIf="desplegar">
           </a>
           <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
             <li (click)="irSeccion($event)">Inicio</li>
