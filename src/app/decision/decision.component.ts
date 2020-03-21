@@ -41,7 +41,7 @@ export class DecisionComponent implements OnInit {
     console.log(this.arrDecisions);
   }
 
-  async crearPostBtn() {
+  /* async crearPostBtn() {  //comentado hasta que sepa exactamente que queremos poner aqui
     this.ngRedux.dispatch({
       type: ROUTE_AFTER,
       routeAfter: '/home',
@@ -49,6 +49,6 @@ export class DecisionComponent implements OnInit {
 
     });
     this.router.navigate(['/new-post']);
-  }
+  } */
 
 }
