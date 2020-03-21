@@ -32,10 +32,10 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/children`, parameters).toPromise();
   }
 
-  getLikes(parameters): Promise<any>{
+  getLikes(parameters): Promise<any> {
     console.log('Servicio recibe parámetro likes');
     console.log(parameters);
-    return this.httpClient.post(`${this.baseUrl}/getlikes`, parameters).toPromise();
+    return this.httpClient.post(`${this.baseUrl}/likes`, parameters).toPromise();
   }
 
 
@@ -45,6 +45,17 @@ export class PostService {
     newPostForm.usertoken = localStorage.getItem('token');
     console.log(newPostForm)
     return this.httpClient.post(`${this.baseUrl}/create`, newPostForm).toPromise();
+  }
+
+  putLike(id): Promise<any> {
+    const userid = localStorage.getItem('usuario');
+    const usertoken = localStorage.getItem('token');
+    const body = {
+      userid: userid,
+      usertoken: usertoken,
+      postid: id
+    }
+    return this.httpClient.put(`${this.baseUrl}/likes`, body).toPromise();
   }
   /*  dummy(idAlumno: string): Promise<any> {
      const httpOptions = {
