@@ -4,9 +4,13 @@
         <article class="decisionCont" *ngFor="let decision of arrDecisions">
             <a href="" [routerLink]="['/page', decision.id]">
                 <article class="decision">
-                    <img [src]= "decision.imagen"  alt="">
-                    <h6>{{ decision.titulo }}</h6>
-                    <h6>{{ decision.nombre }}</h6>
+                    <div class="imgDec">
+                        <img [src]= "decision.imagen"  alt="">
+                    </div>
+                    <div class="textDec">
+                        <h6>{{ decision.titulo }}</h6>
+                        <h6>{{ decision.nombre }}</h6>
+                    </div>
                 </article>
             </a>
         </article>
