@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { REGISTER_ACTIVE } from '../actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private ngRedux: NgRedux<IAppState>,
+    private router: Router
   ) {
     this.formularioEnviado = false;
     this.formRegister = new FormGroup({
@@ -67,6 +69,10 @@ export class RegisterComponent implements OnInit {
     } else {
       return { passwordvalidator: true };
     }
+  }
+
+  dirigirHome() {
+    this.router.navigate(['/home']);
   }
 
   OnDestroy() {
