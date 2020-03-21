@@ -38,12 +38,23 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/likes`, parameters).toPromise();
   }
 
+  checkLike(id): Promise<any> {
+    const userid = localStorage.getItem('usuario');
+    const usertoken = localStorage.getItem('token');
+    const body = {
+      userid: userid,
+      usertoken: usertoken,
+      postid: id
+    };
+    return this.httpClient.post(`${this.baseUrl}/checklike`, body).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);
     newPostForm.id = localStorage.getItem('usuario');
     newPostForm.usertoken = localStorage.getItem('token');
-    console.log(newPostForm)
+    console.log(newPostForm);
     return this.httpClient.post(`${this.baseUrl}/create`, newPostForm).toPromise();
   }
 
@@ -54,7 +65,7 @@ export class PostService {
       userid: userid,
       usertoken: usertoken,
       postid: id
-    }
+    };
     return this.httpClient.put(`${this.baseUrl}/likes`, body).toPromise();
   }
   /*  dummy(idAlumno: string): Promise<any> {
