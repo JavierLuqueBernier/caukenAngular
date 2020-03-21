@@ -10,6 +10,9 @@
     <div class="autor">
       <img src="../../assets/images/avatarlow.jpg" alt="">
     </div>
+    <div class="likes">
+      <app-likes [id]="post.id"></app-likes>
+    </div>
     <div class="share" [routerLink]="['/login']" >
       <img src="../../assets/images/share.svg" alt="">
     </div>

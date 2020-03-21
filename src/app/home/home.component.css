@@ -11,7 +11,11 @@
   border:.25rem solid var(--background3);
   padding:0;
   box-shadow: 5px 5px 5px var(--shadow2);
+  font-size:3em;
+  font-weight: bold;
 }
+
+
 
 .crearPostBtn img{
   display: block;

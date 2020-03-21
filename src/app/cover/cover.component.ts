@@ -21,7 +21,7 @@ export class CoverComponent implements OnInit {
     private postService: PostService,
     private ngRedux: NgRedux<IAppState>,
     private location: Location) {
-    this.post = new Post(3, '¡Post no encontrado!', '../../assets/images/24.jpg', 'Parece que el post que estabas buscando no existe...', '#Categoría', 'Cauken', 0, 0);
+    this.post = new Post(3, '¡Post no encontrado!', '../../assets/images/24.jpg', 'Parece que el post que estabas buscando no existe...', '#Categoría', 'Cauken', 0, 0,null);
   }
 
   async ngOnInit() {
