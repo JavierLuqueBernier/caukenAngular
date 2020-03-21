@@ -32,6 +32,12 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/children`, parameters).toPromise();
   }
 
+  getLikes(parameters): Promise<any>{
+    console.log('Servicio recibe parámetro likes');
+    console.log(parameters);
+    return this.httpClient.post(`${this.baseUrl}/getlikes`, parameters).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);

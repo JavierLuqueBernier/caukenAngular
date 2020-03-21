@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-likes',
@@ -7,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LikesComponent implements OnInit {
   @Input() id: number;
-  constructor() { }
+  likes: number;
+  constructor(
+    private postService: PostService,
+  ) { }
 
-  ngOnInit() {
-    console.log('id para likes: '+this.id)
+  async ngOnInit() {
+    console.log('id para likes: ' + this.id);
+    this.likes = await this.postService.getLikes({ id: this.id });
   }
 
 }
