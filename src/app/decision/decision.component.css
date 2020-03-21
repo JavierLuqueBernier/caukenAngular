@@ -45,7 +45,7 @@
     padding: .875rem 1rem 1rem;
     text-decoration: none;
     color: #f3f3f3;
-  }
+}
   
 
 .decisin {
@@ -66,11 +66,30 @@ p{
     color: #f3f3f3;
     text-align: center;
     margin: 0 auto;
-    padding-top: 2.5em;
-    
+    padding-top: 2.5em;    
 }
 
 .decision h6 {
     line-height: 1.5em;
     text-align: center;
-  }
+}
+
+.crearPostBtn{
+    position: fixed;
+    /* bottom:1em; */
+    right:1em;
+    width:4rem;
+    height: 4rem;
+    background:none;
+    border:none;
+    border-radius:50%;
+    overflow: hidden;
+    border:.25rem solid var(--background3);
+    padding:0;
+    box-shadow: 5px 5px 5px var(--shadow2);
+}
+
+.crearPostBtn img{
+    display: block;
+    width:100%;
+}
