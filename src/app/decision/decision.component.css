@@ -1,3 +1,30 @@
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.scroller {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    scrollbar-width: none;
+}
+
+.decisionCont a{
+    display: block;
+}
+
+.decision {
+    width: 168px;
+    height: 244px;
+    overflow: hidden;
+    margin: 1em;
+    border-radius: .5em;
+    box-shadow: 3px 3px 7px var(--shadow1);
+    background: var(--background1);
+  }
+
+  
+
 .decisin {
     background-color: rgb(33, 33, 33, 0.9);
     border-radius: 1rem 1rem 0 0;

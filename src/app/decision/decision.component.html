@@ -1,10 +1,14 @@
 <div class="decisin">
     <p>¿Qué deseas hacer?</p>
-    <article *ngFor="let decision of arrDecisions">
-        <a href="" [routerLink]="['/page', decision.id]">
-            <img [src]= "decision.imagen"  alt="">
-            <h3>{{ decision.titulo }}</h3>
-            <p>{{ decision.nombre}}</p>
-        </a>
-    </article>
+    <div class="scroller">
+        <article class="decisionCont" *ngFor="let decision of arrDecisions">
+            <a href="" [routerLink]="['/page', decision.id]">
+                <article class="decision">
+                    <img [src]= "decision.imagen"  alt="">
+                    <h6>{{ decision.titulo }}</h6>
+                    <h6>{{ decision.nombre }}</h6>
+                </article>
+            </a>
+        </article>
+    </div>
 </div>
