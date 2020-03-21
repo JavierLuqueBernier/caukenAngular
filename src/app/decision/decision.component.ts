@@ -11,8 +11,10 @@ import { PostService } from '../post.service';
   styleUrls: ['./decision.component.css']
 })
 export class DecisionComponent implements OnInit {
+
+  @Input() id: number; 
   
-  arrDecisions: Array<[]>;
+  arrDecisions: any[];
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
@@ -21,12 +23,13 @@ export class DecisionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.id);
     this.ngRedux.dispatch({
       type: DECISION_ACTIVE,
       loginActive: true
     });
 
-    this.postService.getChildren(posts.id) //esto esta mal pero no se como arreglarlo, de donde saco el posts.id??
+    this.postService.getChildren({id:this.id})
     .then( response => {
       console.log(response);
       this.arrDecisions = response;
@@ -34,6 +37,8 @@ export class DecisionComponent implements OnInit {
     .catch( err => {
       console.log(err);
     })
+
+    console.log(this.arrDecisions);
   }
 
 }
