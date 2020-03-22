@@ -14,14 +14,13 @@ import { Location } from '@angular/common';
 })
 export class CoverComponent implements OnInit {
   pageId: number;
-  post: Post;
+  post: any;
   urlName: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
     private ngRedux: NgRedux<IAppState>,
     private location: Location) {
-    this.post = new Post(3, '¡Post no encontrado!', '../../assets/images/24.jpg', 'Parece que el post que estabas buscando no existe...', '#Categoría', 1, 0, 0, null);
   }
 
   async ngOnInit() {

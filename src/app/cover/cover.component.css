@@ -51,7 +51,7 @@
 
 .cover .autor {
   height: 1.5em;
-  width: 25%;
+  width: 15%;
 }
 
 .cover .autor img {
@@ -60,12 +60,20 @@
   border-radius: 50%;
 }
 
+.cover .likes{
+  width:35%;
+}
+
+.cover .likes app-likes{
+  width:100%;
+}
+
 .cover .share {
-  width: 25%;
+  width: 15%;
 }
 
 .cover .read {
-  width: 50%;
+  width: 35%;
 }
 
 .cover .read a {

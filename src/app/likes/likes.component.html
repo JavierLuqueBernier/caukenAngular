@@ -1,1 +1,5 @@
-<p>likes works!</p>
+<div class="likeCont">
+  <img src="../../assets/images/like.svg" alt="" (click)="manejarLike()" *ngIf="likeActivo">
+  <img src="../../assets/images/notlike.svg" alt="" (click)="manejarLike()" *ngIf="!likeActivo">
+  <span class="nLikes">{{likes}}</span>
+</div>
