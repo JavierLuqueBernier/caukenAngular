@@ -16,13 +16,14 @@ export class DecisionComponent implements OnInit {
   @Output() outId: EventEmitter<any> = new EventEmitter();
 
   arrDecisions: any[];
+  ready: boolean;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private router: Router,
     private postService: PostService
   ) {
-
+    this.ready = false;
   }
 
   ngOnInit() {
@@ -34,19 +35,32 @@ export class DecisionComponent implements OnInit {
 
     this.postService.getChildren({ id: this.id })
       .then(response => {
-        console.log(response);
-        this.arrDecisions = response;
+        console.log('respuesta arrDecisions:')
+        if (!response.warning) {
+          this.arrDecisions = response;
+          this.ready = true;
+        } else {
+          this.arrDecisions = [
+            {
+              titulo: 'no hay más decisiones'
+            }
+          ]
+        }
+
       })
       .catch(err => {
         console.log(err);
       })
-
+    this.ready = true;
     console.log(this.arrDecisions);
   }
 
   navegarPage(id) {
-    console.log('navego');
-    this.outId.emit(id);
+    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`/page/${id}`])
+      window.scrollTo(0, 0);
+      this.ngOnInit();
+    });
   }
 
 }
