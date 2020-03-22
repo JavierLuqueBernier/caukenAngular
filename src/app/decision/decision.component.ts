@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { Router } from '@angular/router';
@@ -12,15 +12,18 @@ import { PostService } from '../post.service';
 })
 export class DecisionComponent implements OnInit {
 
-  @Input() id: number; 
-  
+  @Input() id: number;
+  @Output() outId: EventEmitter<any> = new EventEmitter();
+
   arrDecisions: any[];
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private router: Router,
     private postService: PostService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
     console.log(this.id);
@@ -29,16 +32,21 @@ export class DecisionComponent implements OnInit {
       loginActive: true
     });
 
-    this.postService.getChildren({id:this.id})
-    .then( response => {
-      console.log(response);
-      this.arrDecisions = response;
-    })
-    .catch( err => {
-      console.log(err);
-    })
+    this.postService.getChildren({ id: this.id })
+      .then(response => {
+        console.log(response);
+        this.arrDecisions = response;
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
     console.log(this.arrDecisions);
+  }
+
+  navegarPage(id) {
+    console.log('navego');
+    this.outId.emit(id);
   }
 
 }
