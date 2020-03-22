@@ -27,7 +27,6 @@ export class DecisionComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id);
     this.ngRedux.dispatch({
       type: DECISION_ACTIVE,
       loginActive: true
@@ -35,7 +34,6 @@ export class DecisionComponent implements OnInit {
 
     this.postService.getChildren({ id: this.id })
       .then(response => {
-        console.log('respuesta arrDecisions:')
         if (!response.warning) {
           this.arrDecisions = response;
           this.ready = true;
@@ -51,8 +49,6 @@ export class DecisionComponent implements OnInit {
       .catch(err => {
         console.log(err);
       })
-    this.ready = true;
-    console.log(this.arrDecisions);
   }
 
   navegarPage(id) {

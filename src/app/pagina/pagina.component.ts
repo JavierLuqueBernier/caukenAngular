@@ -24,14 +24,12 @@ export class PaginaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log('hola');
     this.activatedRoute.params.subscribe(params => {
       this.pageId = params.pageId;
     });
 
     try {
       this.post = await this.postService.getById(this.pageId);
-      console.log(this.post);
     } catch (err) {
       console.log(err);
     }
