@@ -15,14 +15,14 @@
                     </fieldset>
                     <fieldset class="borde">
                         <legend  class="w-auto">Contraseña</legend>
-                        <input type="text" class="form-control" formControlName="password" placeholder="Escribe tu contraseña...">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Escribe tu contraseña...">
                     </fieldset>
                     <fieldset class="borde">
                         <legend  class="w-auto">Contraseña</legend>
-                        <input type="text" class="form-control" formControlName="repite_password" placeholder="Repite tu contraseña...">
+                        <input type="password" class="form-control" formControlName="repite_password" placeholder="Repite tu contraseña...">
                     </fieldset>
 
-                    <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid">INICIAR SESIÓN</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid" (click)="dirigirHome()">INICIAR SESIÓN</button>
                     <p class="error" *ngIf="formularioEnviado && !formRegister.valid"> Uy! Parece que algún campo no está bien relleno!</p>
                 </form>
         </div>

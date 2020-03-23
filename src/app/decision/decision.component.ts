@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { Router } from '@angular/router';
-import { DECISION_ACTIVE } from '../actions';
+import { DECISION_ACTIVE, ROUTE_AFTER } from '../actions';
 import { PostService } from '../post.service';
 
 @Component({
@@ -59,5 +59,15 @@ export class DecisionComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+  /* async crearPostBtn() {  //comentado hasta que sepa exactamente que queremos poner aqui
+    this.ngRedux.dispatch({
+      type: ROUTE_AFTER,
+      routeAfter: '/home',
+
+
+    });
+    this.router.navigate(['/new-post']);
+  } */
 
 }
