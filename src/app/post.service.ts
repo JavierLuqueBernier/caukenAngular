@@ -49,6 +49,10 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/checklike`, body).toPromise();
   }
 
+  getComments(parameters): Promise<any>{
+    return this.httpClient.post(`${this.baseUrl}/comments`, parameters).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);
