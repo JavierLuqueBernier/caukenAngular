@@ -28,15 +28,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  async crearPostBtn() {
-    this.ngRedux.dispatch({
-      type: ROUTE_AFTER,
-      routeAfter: '/home',
 
-
-    });
-    this.router.navigate(['/new-post']);
-  }
 
 
 

@@ -16,6 +16,7 @@ import { Post } from '../models/post';
 export class NewComponent implements OnInit {
   newPostForm: FormGroup;
   errors: any;
+  postData: any;
   usuario: string;
   titulo: string;
   imagen: string;
@@ -27,11 +28,12 @@ export class NewComponent implements OnInit {
     private router: Router,
     private ngRedux: NgRedux<IAppState>
   ) {
+    this.postData = {};
     this.usuario = localStorage.getItem('usuario');
-    this.titulo = '';
+    /* this.titulo = '';
     this.imagen = '';
     this.contenido = '';
-    this.categoria = '';
+    this.categoria = ''; */
     this.newPostForm = new FormGroup({
       titulo: new FormControl('', [
         Validators.required,
@@ -65,6 +67,7 @@ export class NewComponent implements OnInit {
 
       ]),
 
+
     });
   }
   /* se tiene que tener preparada la id del post anterior y la fk_ancestro si la hubiera, la id del usuario para rellenar los campos ocultos
@@ -81,15 +84,20 @@ export class NewComponent implements OnInit {
       });
       this.router.navigate(['/login']);
     }
-
-    //Esto es un intento de recuperar los datos de newPostForm a través de redux. Infructuoso. No consigo actualizar de manera dinámica los values por defecto del formulario.
+    /*---------------------------------------------------------------- */
+    /*----------------------RECUPERAR DATOS REDUX--------------------- */
+    /*---------------------------------------------------------------- */
     this.ngRedux.subscribe(() => {
       const state = this.ngRedux.getState();
-      this.titulo = state.postData.titulo;
+      this.postData = state.postData;
       console.log('paso por redux')
       console.log(this.titulo);
 
     });
+
+    this.newPostForm.get('titulo').setValue(this.postData.titulo);
+    console.log('El título de marras')
+    console.log(this.postData);
 
 
   }
@@ -112,9 +120,13 @@ export class NewComponent implements OnInit {
 
         });
         //2 se guardan datos en formulario
+        const postDataRecord = {
+          titulo: this.newPostForm.get('titulo').value
+        }
+        console.log(postDataRecord);
         this.ngRedux.dispatch({
           type: POST_DATA,
-          postData: this.newPostForm.value
+          postData: postDataRecord,
 
         });
         //3 se navega a login
@@ -126,9 +138,8 @@ export class NewComponent implements OnInit {
       }
     } catch (err) {
       this.errors = err;
-
-
-
     }
   }
+
+
 }

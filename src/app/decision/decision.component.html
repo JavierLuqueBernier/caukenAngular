@@ -1,11 +1,14 @@
-<div class="decisin" *ngIf="ready">
+<div class="decisin" >
   <p>¿Qué deseas hacer?</p>
-  <article *ngFor="let decision of arrDecisions">
-    <!-- <a href="" [routerLink]="['/page', decision.id]"> -->
-    <a (click)="navegarPage(decision.id)">
-      <img [src]="decision.imagen" alt="">
-      <h3>{{ decision.titulo }}</h3>
-      <p>{{ decision.nombre}}</p>
-    </a>
-  </article>
+  <app-new-btn [idPadre]="id"></app-new-btn>
+  <div class="decisionCont"*ngIf="ready">
+    <article *ngFor="let decision of arrDecisions">
+      <!-- <a href="" [routerLink]="['/page', decision.id]"> -->
+      <a (click)="navegarPage(decision.id)">
+        <img [src]="decision.imagen" alt="">
+        <h3>{{ decision.titulo }}</h3>
+        <p>{{ decision.nombre}}</p>
+      </a>
+    </article>
+  </div>
 </div>

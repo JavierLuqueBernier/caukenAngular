@@ -36,13 +36,7 @@ export class PaginaComponent implements OnInit {
   }
 
 
-  navegarPagina(id) {
-    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-      this.router.navigate([`/page/${id}`])
-      window.scrollTo(0, 0);
-      this.ngOnInit();
-    });
-  }
+
 
 
 }

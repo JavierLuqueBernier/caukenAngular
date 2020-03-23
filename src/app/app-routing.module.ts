@@ -14,16 +14,16 @@ import { DecisionComponent } from './decision/decision.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: { animation: 'Home' } },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryTestComponent },
   /* { path: 'page/:firstPageId/:pageId', component: PaginaComponent }, */
-  { path: 'page/:pageId', component: PaginaComponent },
+  { path: 'page/:pageId', component: PaginaComponent, data: { animation: 'Page' }  },
  /*  { path: 'page/:firstPageId', component: CoverComponent }, */
-  { path: 'cover/:pageId', component: CoverComponent },
+  { path: 'cover/:pageId', component: CoverComponent, data: { animation: 'Cover' }  },
   { path: 'new-branch', component: NewComponent },
-  { path: 'new-post', component: NewComponent },
+  { path: 'new-post', component: NewComponent,  data: { animation: 'New' } },
   { path: 'myarea', component: MyAreaComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'decision', component: DecisionComponent },

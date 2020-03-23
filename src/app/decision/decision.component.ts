@@ -37,6 +37,7 @@ export class DecisionComponent implements OnInit {
         if (!response.warning) {
           this.arrDecisions = response;
           this.ready = true;
+          console.log(this.arrDecisions);
         } else {
           this.arrDecisions = [
             {
@@ -54,7 +55,7 @@ export class DecisionComponent implements OnInit {
   navegarPage(id) {
     this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
       this.router.navigate([`/page/${id}`])
-      window.scrollTo(0, 0);
+      /* window.scrollTo(0, 0); */
       this.ngOnInit();
     });
   }

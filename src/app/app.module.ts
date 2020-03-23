@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { CoversListComponent } from './covers-list/covers-list.component';
 import { NewComponent } from './new/new.component';
 import { PostComponent } from './post/post.component';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { NewBtnComponent } from './new-btn/new-btn.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { IAppState, rootReducer, INITIAL_STATE } from './store';
     ShareComponent,
     CoversListComponent,
     NewComponent,
-    PostComponent
+    PostComponent,
+    NewBtnComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { IAppState, rootReducer, INITIAL_STATE } from './store';
     ReactiveFormsModule,
     HttpClientModule,
     NgReduxModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
