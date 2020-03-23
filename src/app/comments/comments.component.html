@@ -1,1 +1,85 @@
-<p>comments works!</p>
+<section class="comments container-fluid">
+  <h2>Comentarios</h2>
+  <div class="container">
+    <form [formGroup]="commentForm" (ngSubmit)="enviarComentario()">
+      <div class="user">
+        <img src="../../assets/images/avatarlow.jpg" alt="">
+      </div>
+      <input type="text" placeholder="Escribe tu comentario...." formControlName="contenido">
+      <input type="submit" value="Enviar">
+    </form>
+    <ul>
+      <li class="comment">
+
+          <div class="user">
+            <img src="../../assets/images/avatarlow.jpg" alt="">
+          </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+      <li class="comment">
+
+        <div class="user">
+          <img src="../../assets/images/avatarlow.jpg" alt="">
+        </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia
+            incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+      <li class="comment">
+
+        <div class="user">
+          <img src="../../assets/images/avatarlow.jpg" alt="">
+        </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia
+            incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+      <li class="comment">
+
+        <div class="user">
+          <img src="../../assets/images/avatarlow.jpg" alt="">
+        </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia
+            incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+      <li class="comment">
+
+        <div class="user">
+          <img src="../../assets/images/avatarlow.jpg" alt="">
+        </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia
+            incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+      <li class="comment">
+
+        <div class="user">
+          <img src="../../assets/images/avatarlow.jpg" alt="">
+        </div>
+
+        <div class="contenido">
+          <h4>NombreAutor / 20/6/2088</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci, saepe, error distinctio mollitia
+            incidunt quasi facere dicta doloremque, atque consectetur. Necessitatibus, temporibus voluptatum?</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

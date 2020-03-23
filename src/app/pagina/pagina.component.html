@@ -17,4 +17,7 @@
   <div class="decision">
     <app-decision [id]="post.id" (outId)="navegarPagina($event)"></app-decision>
   </div>
+  <div class="comments">
+    <router-outlet></router-outlet>
+  </div>
 </section>

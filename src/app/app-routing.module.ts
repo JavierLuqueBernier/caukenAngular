@@ -19,11 +19,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryTestComponent },
   /* { path: 'page/:firstPageId/:pageId', component: PaginaComponent }, */
-  { path: 'page/:pageId', component: PaginaComponent, data: { animation: 'Page' }  },
- /*  { path: 'page/:firstPageId', component: CoverComponent }, */
-  { path: 'cover/:pageId', component: CoverComponent, data: { animation: 'Cover' }  },
+  {
+    path: 'page/:pageId', component: PaginaComponent, data: { animation: 'Page' },
+    children: [{path: 'comments', component: CommentsComponent}]
+  },
+  /*  { path: 'page/:firstPageId', component: CoverComponent }, */
+  { path: 'cover/:pageId', component: CoverComponent, data: { animation: 'Cover' } },
   { path: 'new-branch', component: NewComponent },
-  { path: 'new-post', component: NewComponent,  data: { animation: 'New' } },
+  { path: 'new-post', component: NewComponent, data: { animation: 'New' } },
   { path: 'myarea', component: MyAreaComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'decision', component: DecisionComponent },
