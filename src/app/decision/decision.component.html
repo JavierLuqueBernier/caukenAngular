@@ -1,7 +1,7 @@
 <div class="decisin">
     <p>¿Qué deseas hacer?</p>
-    <div class="scroller">
-        <div *ngIf="ready">
+    <div class="scroller" *ngIf="ready">
+        
           <article class="decisionCont" *ngFor="let decision of arrDecisions">
               <a (click)="navegarPage(decision.id)">
                   <div class="decision">
@@ -15,7 +15,7 @@
                   </div>
               </a>
           </article>
-      </div>
+      
     </div>
-    <app-new-btn [idPadre]="id"></app-new-btn>
+    <app-new-btn [idPadre]="id" class="crearPostBtn"></app-new-btn>
 </div>
