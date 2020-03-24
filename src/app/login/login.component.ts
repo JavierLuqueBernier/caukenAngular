@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       .then(response => {
         console.log(response);
         localStorage.setItem('token', response['success']);
-        localStorage.setItem('usuario', response['usuario']);
+        localStorage.setItem('usuario', response['userid']);
 
         // se obtiene la ruta de la que se venía antes de hacer login y se navega:
         const ruta = this.ngRedux.getState().routeAfter;

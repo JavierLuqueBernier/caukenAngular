@@ -1,0 +1,86 @@
+.comments {}
+
+.comments h2 {
+  margin: 1em;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+form>.user {}
+
+form input[type="text"] {
+  width: 65%;
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--color2)
+}
+
+form input[type="submit"] {
+  width: 20%;
+  background: var(--background3);
+  border: none;
+  border-radius: 1em;
+  color: var(--color4);
+}
+
+.user {
+  height: 2em;
+  width: 10%;
+}
+
+.user img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.comments ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.comments .comment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.comments .comment .contenido {
+  width: 90%;
+  border-radius: 0 1em 1em 1em;
+  box-shadow: 3px 3px 7px var(--shadow2);
+  padding: 1em;
+}
+
+.comments .comment .contenido h4 {
+  font-size: 1rem;
+  margin-bottom: 1em;
+  color: var(--color2);
+}
+
+.comments .comment .contenido p {
+  font-size: 1.125rem;
+  line-height: 1.5em;
+}
+
+.comments .comment .contenido .deleteBtnCont {
+  text-align: right;
+}
+
+.comments .comment .contenido .deleteBtn {
+  font-size:.75rem;
+  text-align: right;
+  color: var(--color5);
+  border: 1px solid var(--color5);
+  background: none;
+  border-radius:1em;
+
+}
