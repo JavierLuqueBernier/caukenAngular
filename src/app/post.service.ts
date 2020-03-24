@@ -22,6 +22,11 @@ export class PostService {
     return this.httpClient.get(`${this.baseUrl}/${id}`).toPromise();
   }
 
+  /* getIdPadre(fk_id_anterior): Promise<any> //hay que hacer un subscribe?
+ {
+    return this.httpClient.get(`${this.baseUrl}/${fk_id_anterior}`).toPromise();
+ } */
+
   getCovers(parameters): Promise<any> {
     console.log('' + parameters);
     return this.httpClient.post(`${this.baseUrl}/covers`, parameters).toPromise();
@@ -48,7 +53,6 @@ export class PostService {
     };
     return this.httpClient.post(`${this.baseUrl}/checklike`, body).toPromise();
   }
-
 
   create(newPostForm): Promise<any> {
     console.log(newPostForm);
