@@ -54,7 +54,6 @@ export class CommentsComponent implements OnInit {
 
   async enviarComentario() {
     console.log(this.newCommentForm.value);
-    this.newCommentForm.fk_post = this.id;
     console.log(this.newCommentForm.value)
     try {
       const login = await this.userService.checkToken();
@@ -62,7 +61,7 @@ export class CommentsComponent implements OnInit {
         // Si el login no es válido se almacena en redux esta dirección para que el login pueda retornar aquí cuando valide
         this.ngRedux.dispatch({
           type: ROUTE_AFTER,
-          routeAfter: `/page/${this.id}/comments`,
+          routeAfter: `/page/${this.id}`,
         });
         this.router.navigate(['/login']);
       }
