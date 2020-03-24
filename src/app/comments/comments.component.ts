@@ -71,6 +71,11 @@ export class CommentsComponent implements OnInit {
       if (result) {
         this.arrComments = await this.postService.getComments({ id: this.id });
       }
+      if (this.arrComments['warning']) {
+        this.commentsActive = false;
+      } else {
+        this.commentsActive = true;
+      }
     } catch (err) {
       console.log(err);
     }
