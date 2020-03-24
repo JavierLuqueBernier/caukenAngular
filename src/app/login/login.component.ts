@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
 
         // se obtiene la ruta de la que se venía antes de hacer login y se navega:
         const ruta = this.ngRedux.getState().routeAfter;
+
         this.router.navigate([ruta]);
 
       })
@@ -68,5 +69,12 @@ export class LoginComponent implements OnInit {
         loginActive: false;
       });
     } */
+
+  ngOnDestroy():void {
+    this.ngRedux.dispatch({
+      type: LOGIN_ACTIVE,
+      loginActive: false
+    });
+  }
 
 }

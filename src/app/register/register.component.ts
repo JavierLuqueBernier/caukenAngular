@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  OnDestroy() {
+  ngOnDestroy() {
     this.ngRedux.dispatch({
       type: REGISTER_ACTIVE,
       registerActive: false,
