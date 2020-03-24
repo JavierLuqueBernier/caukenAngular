@@ -51,7 +51,7 @@
     text-decoration: none;
     color: #f3f3f3;
 }
-  
+
 
 .decisin {
     background-color: rgba(33, 33, 33, 0.9);
@@ -73,7 +73,7 @@ p{
     color: #f3f3f3;
     text-align: center;
     margin: 0 auto;
-    padding-top: 2.5em;    
+    padding-top: 2.5em;
 }
 
 .decision h6 {
@@ -83,10 +83,11 @@ p{
 }
 
 .crearPostBtn{
-    
+
     position: absolute;
-    width: 4rem;
+    width: auto;
     right: 2em;
+    transform:translate(-50%,-50%);
     /* transform: translateX(-50%); */
     bottom: 18em;
 }

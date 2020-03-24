@@ -3,9 +3,7 @@ import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { ROUTE_AFTER, ID_PADRE } from '../actions';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { animate, style, group, query, transition, trigger, state } from '@angular/animations';
-import { FormGroup, FormControl } from '@angular/forms';
 import { PostService } from '../post.service';
 
 @Component({
@@ -15,13 +13,13 @@ import { PostService } from '../post.service';
   animations: [
     trigger('btnAnimate', [
       state('initial', style({
-        width: '4rem', height: '4rem', right: '1rem', bottom: '1rem', opacity: '100%'
+        width: '4rem', height: '4rem', right: '0rem', bottom: '0rem', opacity: '100%'
       })),
       state('final', style({
-        width: '500rem', height: '500rem', right: '-260rem', bottom: '-260rem',opacity:'0%'
+        width: '1000rem', height: '1000rem', right: '-560rem', bottom: '-560rem', opacity: '0%'
       })),
       transition('initial => final', [
-        animate('.3s')
+        animate('.5s')
       ]),
 
     ])
@@ -37,7 +35,8 @@ export class NewBtnComponent implements OnInit {
   animate: boolean;
 
 
-  constructor(private postService: PostService,
+  constructor(
+    private postService: PostService,
     private router: Router,
     private ngRedux: NgRedux<IAppState>,
   ) {
@@ -49,7 +48,7 @@ export class NewBtnComponent implements OnInit {
   ngOnInit() {
     console.log('esto es lo que recibo del padre' + this.idPadre);
   }
- 
+
 
   async crearPostBtn(/* pValor */) {
     /* console.log(pValor);
@@ -74,7 +73,7 @@ export class NewBtnComponent implements OnInit {
     } else if (this.idPadre) {
       console.log('IdPadre existe');
     }
-    window.setTimeout(this.navigateNew.bind(this) , 200);
+    window.setTimeout(this.navigateNew.bind(this), 300);
 
   }
   navigateNew() {
