@@ -23,18 +23,14 @@ export class PostService {
   }
 
   getCovers(parameters): Promise<any> {
-    console.log('' + parameters);
     return this.httpClient.post(`${this.baseUrl}/covers`, parameters).toPromise();
   }
 
   getChildren(parameters): Promise<any> {
-    console.log('' + parameters);
     return this.httpClient.post(`${this.baseUrl}/children`, parameters).toPromise();
   }
 
   getLikes(parameters): Promise<any> {
-    console.log('Servicio recibe parámetro likes');
-    console.log(parameters);
     return this.httpClient.post(`${this.baseUrl}/likes`, parameters).toPromise();
   }
 
@@ -53,12 +49,17 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/comments`, parameters).toPromise();
   }
 
+  createComment(commentForm): Promise<any> {
+    commentForm.fk_usuario = localStorage.getItem('usuario');
+    commentForm.usertoken = localStorage.getItem('token');
+    console.log(commentForm);
+    return this.httpClient.post(`${this.baseUrl}/comments/create`, commentForm).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
-    console.log(newPostForm);
-    newPostForm.id = localStorage.getItem('usuario');
+    newPostForm.fk_usuario = localStorage.getItem('usuario');
     newPostForm.usertoken = localStorage.getItem('token');
-    console.log(newPostForm);
     return this.httpClient.post(`${this.baseUrl}/create`, newPostForm).toPromise();
   }
 
