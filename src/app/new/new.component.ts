@@ -87,13 +87,14 @@ export class NewComponent implements OnInit {
     /*---------------------------------------------------------------- */
     /*----------------------RECUPERAR DATOS REDUX--------------------- */
     /*---------------------------------------------------------------- */
-    this.ngRedux.subscribe(() => {
-      const state = this.ngRedux.getState();
+    const state = this.ngRedux.getState();
       this.postData = state.postData;
+      this.newPostForm.get('fk_id_anterior').setValue(state.idPadre);
+      console.log(this.newPostForm.controls.fk_id_anterior.value);
+      console.log(state.idPadre);
       console.log('paso por redux')
       console.log(this.titulo);
-
-    });
+    
 
     this.newPostForm.get('titulo').setValue(this.postData.titulo);
     console.log('El título de marras')
