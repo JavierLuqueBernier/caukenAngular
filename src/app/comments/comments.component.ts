@@ -44,7 +44,9 @@ export class CommentsComponent implements OnInit {
       this.id = params.pageId;
     });
     this.arrComments = await this.postService.getComments({ id: this.id });
-    this.commentsActive = true;
+    if (!this.arrComments['warning']) {
+      this.commentsActive = true;
+    }
     const login = await this.userService.checkToken();
     if (login['login'] === true) {
       this.userid = parseInt(localStorage.getItem('usuario'));
@@ -88,6 +90,13 @@ export class CommentsComponent implements OnInit {
       const result = await this.postService.deleteComment({ id: comment.id, fk_post: comment.fk_post, fk_usuario: comment.fk_usuario });
       if (result) {
         this.arrComments = await this.postService.getComments({ id: this.id });
+      }
+      console.log('buscando error')
+      console.log(this.arrComments)
+      if (this.arrComments['warning']) {
+        this.commentsActive = false;
+      } else {
+        this.commentsActive = true;
       }
     } catch (err) {
       console.log(err)
