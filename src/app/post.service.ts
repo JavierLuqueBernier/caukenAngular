@@ -45,20 +45,33 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/checklike`, body).toPromise();
   }
 
-  getComments(parameters): Promise<any>{
+  getComments(parameters): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/comments`, parameters).toPromise();
   }
 
   createComment(commentForm): Promise<any> {
-    commentForm.fk_usuario = localStorage.getItem('usuario');
+    commentForm.fk_usuario = commentForm.userid = localStorage.getItem('usuario');
     commentForm.usertoken = localStorage.getItem('token');
     console.log(commentForm);
     return this.httpClient.post(`${this.baseUrl}/comments/create`, commentForm).toPromise();
   }
 
+  deleteComment(parameters): Promise<any> {
+    parameters.userid = localStorage.getItem('usuario');
+    parameters.usertoken = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body: parameters
+    };
+    console.log(parameters);
+    return this.httpClient.delete(`${this.baseUrl}/comments/delete`, httpOptions).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
-    newPostForm.fk_usuario = localStorage.getItem('usuario');
+    newPostForm.fk_usuario = newPostForm.userid = localStorage.getItem('usuario');
     newPostForm.usertoken = localStorage.getItem('token');
     return this.httpClient.post(`${this.baseUrl}/create`, newPostForm).toPromise();
   }

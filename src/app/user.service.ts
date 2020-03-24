@@ -23,11 +23,9 @@ export class UserService {
   checkToken(): Promise<any> {
     const token = localStorage.getItem('token');
     const usuario = localStorage.getItem('usuario');
-    console.log(usuario);
-    console.log(token);
     const body = {
       usertoken: token,
-      id: usuario
+      userid: usuario
     }
     return this.httpClient.post(`${this.baseUrl}/checktoken`, body).toPromise();
 

@@ -18,6 +18,7 @@
         <div class="contenido">
           <h4>{{comment.nombre}} / {{comment.fecha_publicacion | date:'dd-MM-yyyy'}}</h4>
           <p>{{comment.contenido}}</p>
+         <div class="deleteBtnCont"> <button class="deleteBtn" *ngIf="comment.fk_usuario===this.userid" (click)=manejarDelete(comment)>Eliminar</button></div>
         </div>
       </li>
 
