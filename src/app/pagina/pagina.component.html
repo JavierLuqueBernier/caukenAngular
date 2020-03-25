@@ -1,21 +1,22 @@
 <section class="post" *ngIf="post">
   <header>
     <h2>{{post.titulo}}</h2>
-    <h3><a>nombre de autor, se consigue por id del post</a></h3>
+    <h3><a>{{post.usuario}}</a></h3>
   </header>
-  <div class="migas">
+  <div class="migas" *ngIf="migasReady">
     <div class="miga" *ngFor="let miga of arrMigas">
-      <a class="chapter"></a>
+     <a class="chapter" [routerLink]="['/page',miga.id]" routerLinkActive="router-link-active" (click)="navegarMiga(miga.id)"> <a >{{miga.titulo}}</a></a>
     </div>
+
   </div>
   <div class="content">
-    <figure>
+    <figure *ngIf="post.imagen!=null">
       <img [src]="post.imagen" [alt]="post.titulo">
     </figure>
     {{post.contenido}}
   </div>
   <div class="decision">
-    <app-decision [id]="post.id" (outId)="navegarPagina($event)"></app-decision>
+    <app-decision [id]="post.id"></app-decision>
   </div>
   <div class="comments">
     <router-outlet></router-outlet>

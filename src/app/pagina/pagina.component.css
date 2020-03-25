@@ -1,6 +1,6 @@
 .post {
   position: relative;
-  padding-bottom:3rem;
+  padding-bottom: 3rem;
   min-height: calc(100vh - 5rem);
 }
 
@@ -31,6 +31,7 @@
 }
 
 .post .migas .chapter {
+  position: relative;
   display: block;
   height: 0.75rem;
   width: 0.75rem;
@@ -39,8 +40,8 @@
   transition: .25s;
 }
 
-.post .migas .miga:last-child .chapter{
-  background:var(--background3)
+.post .migas .miga:last-child .chapter {
+  background: var(--background3)
 }
 
 .post .miga:hover .chapter {
@@ -55,11 +56,35 @@
   height: .35rem;
   width: 1.4rem;
   margin-left: 0.6rem;
-  margin-top: 0.15rem;
+  margin-top: 0.19rem;
 }
 
 .post .migas .miga:last-child .chapter::after {
   border: none;
+}
+
+.post .migas .miga .chapter>a {
+  position: absolute;
+  display: block;
+  top: 1em;
+  left: 0em;
+  transform: rotate(10deg);
+  min-width: 8em;
+  background: var(--color3);
+  border: 2px solid var(--background3);
+  border-radius: 0em 1em 1em 1em;
+  color: var(--color1);
+  padding: .25em;
+  z-index: 100;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color4);
+  overflow: hidden;
+  visibility: collapse;
+}
+
+.post .migas .miga .chapter:hover>a, .post .migas .miga .chapter:active>a {
+  visibility: visible;
 }
 
 .post .content {
@@ -70,7 +95,7 @@
 .post .content figure {
   position: relative;
   width: 85vw;
-  height: 85vw;
+  height: 40vh;
   margin: 0 auto;
   overflow: hidden;
   border-radius: .5rem;
@@ -85,23 +110,23 @@
   height: 100%;
 }
 
-.post .decision{
+.post .decision {
   position: relative;
-  bottom:0;
-  left:50%;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
-  width:100%;
-  margin:0 auto;
-  border-radius:1rem;
-  background:var(--background4);
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background: var(--background4);
 }
 
-.post .decision::after{
-  content:'';
-  display:block;
+.post .decision::after {
+  content: '';
+  display: block;
   position: absolute;
-  top:.5rem;
-  left:50%;
+  top: .5rem;
+  left: 50%;
   height: 0.4rem;
   width: 2rem;
   border-radius: .2rem;
@@ -109,6 +134,6 @@
   background: var(--background1);
 }
 
-.post .comments{
-  position:relative;
+.post .comments {
+  position: relative;
 }
