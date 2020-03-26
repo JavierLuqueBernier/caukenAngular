@@ -21,6 +21,10 @@ export class AppComponent {
     console.log($event)
   }
 
+  ngOnInit(){
+   
+  }
+
 }
 
 

@@ -42,6 +42,9 @@
           formControlName="contenido"></textarea>
       </div>
 
+       <!-- Aqui sería donde se pondria el mapa para geoposicionar -->
+       <app-geo-map (coordenadas)="recibirCoordenadas($event)"></app-geo-map>
+
       <fieldset class="colabo radio">
         <legend>¿Deseas que otros puedan colaborar en tu rama?</legend>
         <input type="radio" name="colaborable" id="colabo" value="colabo" formControlName="colaborable" [checked]="true">

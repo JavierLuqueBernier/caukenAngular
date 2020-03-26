@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 declare var google;
 
@@ -9,27 +9,37 @@ declare var google;
 })
 export class GeoMapComponent implements OnInit {
 
+  @Output() coordenadas: EventEmitter<any>;
+
   map: any;
 
   directionsService: any; // este sirve para recopilar datos
   directionsDisplay: any; // este sirve para pintarlos
 
   constructor() {
-    this.directionsService = new google.maps.directionsService();
-    this.directionsDisplay = new google.maps.directionsDisplay();
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsDisplay = new google.maps.DirectionsRenderer();
+    this.coordenadas = new EventEmitter();
   }
 
   ngOnInit() {
+    console.log('Entra al componente')
     if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
+      console.log('Entra al IF')
+      /* this.loadMap(); */
+      navigator.geolocation.getCurrentPosition((position)=> { //Te lanza tus coordenadas en el momento de la carga
+        /* console.log(position); */
         this.loadMap(position);
+      }, (error)=> {
+        console.log(error)
       });
     } else {
       console.log('No ha sido posible localizar su posición');
     }
   }
 
-  loadMap(position) {
+  loadMap(position = { coords: { latitude: 40, longitude: -3}}) {
+    /* console.log(position); */
     const mapOptions = {
       center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), //donde queremos que se centre
       zoom: 17,
@@ -65,8 +75,9 @@ export class GeoMapComponent implements OnInit {
 
     autocomplete.addListener('place_changed', function () { // esto es para que al buscar otra direccion en la casilla la busque en el mapa
       const place = autocomplete.getPlace();
-      console.log(place.geometry.location.lat());
-      console.log(place.geometry.location.lng());
+      this.coordenadas.latitud = (place.geometry.location.lat());
+      this.coordenadas.longitud = (place.geometry.location.lng());
+      console.log(this.coordenadas);
 
       this.map.setCenter(place.geometry.location); // esto es para que centre el mapa en la nueva direccion
 
