@@ -39,7 +39,7 @@ export class GeoMapComponent implements OnInit {
   }
 
   loadMap(position = { coords: { latitude: 40, longitude: -3}}) {
-    /* console.log(position); */
+    /* console.log(position);*/
     const mapOptions = {
       center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), //donde queremos que se centre
       zoom: 17,
