@@ -23,14 +23,11 @@ export class GeoMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Entra al componente')
+    
     if(navigator.geolocation) {
-      console.log('Entra al IF')
-      /* this.loadMap(); */
-      navigator.geolocation.getCurrentPosition((position)=> { //Te lanza tus coordenadas en el momento de la carga
-        /* console.log(position); */
+      navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
         this.loadMap(position);
-      }, (error)=> {
+      }, (error) => {
         console.log(error)
       });
     } else {
