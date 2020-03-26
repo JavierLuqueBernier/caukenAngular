@@ -25,7 +25,9 @@ export class GeoMapComponent implements OnInit {
   ngOnInit() {
     
     if(navigator.geolocation) {
+      console.log('entra en el if');
       navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
+        console.log('entra en el navigator');
         this.loadMap(position);
       }, (error) => {
         console.log(error)
