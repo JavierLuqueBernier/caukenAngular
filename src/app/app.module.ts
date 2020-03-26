@@ -29,6 +29,7 @@ import { NewComponent } from './new/new.component';
 import { PostComponent } from './post/post.component';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { NewBtnComponent } from './new-btn/new-btn.component';
+import { GeoMapComponent } from './geo-map/geo-map.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { NewBtnComponent } from './new-btn/new-btn.component';
     CoversListComponent,
     NewComponent,
     PostComponent,
-    NewBtnComponent
+    NewBtnComponent,
+    GeoMapComponent
   ],
   imports: [
     BrowserModule,
