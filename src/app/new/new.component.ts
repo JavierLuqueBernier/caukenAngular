@@ -143,8 +143,8 @@ export class NewComponent implements OnInit {
   }
 
   recibirCoordenadas($event) {
-    console.log($event.target)
-    this.newPostForm.get('latitud').setValue($event.target);
-    this.newPostForm.get('longitud').setValue($event.target);
+    console.log($event)
+    this.newPostForm.get('latitud').setValue($event.latitud);
+    this.newPostForm.get('longitud').setValue($event.longitud);
   }
 }

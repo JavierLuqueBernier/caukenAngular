@@ -23,12 +23,15 @@ export class GeoMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    if(navigator.geolocation) {
+
+    if (navigator.geolocation) {
       console.log('entra en el if');
       navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
         console.log('entra en el navigator');
         this.loadMap(position);
+        //Esto envía las coordenadas a newC con la posición del dispositivo
+        console.log(position.coords.latitude);
+        this.coordenadas.emit({ latitud: position.coords.latitude, longitud: position.coords.longitude });
       }, (error) => {
         console.log(error)
       });
@@ -37,7 +40,7 @@ export class GeoMapComponent implements OnInit {
     }
   }
 
-  loadMap(position = { coords: { latitude: 40, longitude: -3}}) {
+  loadMap(position = { coords: { latitude: 40, longitude: -3 } }) {
     /* console.log(position);*/
     const mapOptions = {
       center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), //donde queremos que se centre
@@ -58,13 +61,22 @@ export class GeoMapComponent implements OnInit {
     marker.setMap(this.map);
 
     google.maps.event.addListener(this.map, 'click', (event) => { // esto es para poner un marcador donde clickemos
-      const marker = new google.maps.Marker({ 
+      const marker = new google.maps.Marker({
         position: event.latLng,
         // position: new google.maps.LatLng(LATITUD, LONGITUD)
         title: 'Lugar Seleccionado',
         animation: google.maps.Animation.DROP
       })
       marker.setMap(this.map);
+
+      /*********************************************************/
+      /*            DATOS DEL MARKER                           */
+      /*********************************************************/
+      console.log('datos de marker')
+      console.log(event.latLng.lat());
+      console.log(event.latLng.lng());
+      //Esto envía las coordenadas a newC con los datos del marker
+      this.coordenadas.emit({ latitud: event.latLng.lat(), longitud: event.latLng.lng() });
     })
 
     const autocomplete = new google.maps.places.Autocomplete(document.getElementById('inputPlaces'), {
@@ -85,6 +97,8 @@ export class GeoMapComponent implements OnInit {
       })
       marker.setMap(this.map);
 
+      //Esto envía las coordenadas a newC con los datos de dirección por input
+      this.coordenadas.emit({ latitud: place.geometry.location.lat(), longitud: place.geometry.location.lng() });
     }.bind(this))
 
   }
