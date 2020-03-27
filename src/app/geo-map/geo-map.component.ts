@@ -23,21 +23,10 @@ export class GeoMapComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    if (navigator.geolocation) {
-      console.log('entra en el if');
-      navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
-        console.log('entra en el navigator');
-        this.loadMap(position);
-        //Esto envía las coordenadas a newC con la posición del dispositivo
-        console.log(position.coords.latitude);
-        this.coordenadas.emit({ latitud: position.coords.latitude, longitud: position.coords.longitude });
-      }, (error) => {
-        console.log(error)
-      });
-    } else {
-      console.log('No ha sido posible localizar su posición');
-    }
+    const position = { coords: { latitude: 0, longitude: 0 } };
+    position.coords.latitude = 40.41673;
+    position.coords.longitude = -3.703587;
+    this.loadMap(position);
   }
 
   loadMap(position = { coords: { latitude: 40, longitude: -3 } }) {
@@ -102,5 +91,23 @@ export class GeoMapComponent implements OnInit {
     }.bind(this))
 
   }
+
+  manejarPosicionUsuario() {
+    if (navigator.geolocation) {
+      console.log('entra en el if');
+      navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
+        console.log('entra en el navigator');
+        this.loadMap(position);
+        //Esto envía las coordenadas a newC con la posición del dispositivo
+        console.log(position.coords.latitude);
+        /* this.coordenadas.emit({ latitud: position.coords.latitude, longitud: position.coords.longitude }); */
+      }, (error) => {
+        console.log(error)
+      });
+    } else {
+      console.log('No ha sido posible localizar su posición');
+    }
+  }
+
 
 }

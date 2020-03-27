@@ -1,21 +1,19 @@
 <div class="decisin">
     <p>¿Qué deseas hacer?</p>
     <div class="scroller" *ngIf="ready">
-        
-          <article class="decisionCont" *ngFor="let decision of arrDecisions">
-              <a (click)="navegarPage(decision.id)">
-                  <div class="decision">
-                      <div class="imgDec">
-                          <img [src]= "decision.imagen"  alt="">
-                      </div>
-                      <div class="textDec">
-                          <h6>{{ decision.titulo }}</h6>
-                          <h6>{{ decision.nombre }}</h6>
-                      </div>
-                  </div>
-              </a>
-          </article>
-      
+        <article class="decisionCont" *ngFor="let decision of arrDecisions">
+            <a (click)="navegarPage(decision.id)">
+                <div class="decision">
+                    <div class="imgDec">
+                        <img [src]="decision.imagen" alt="">
+                    </div>
+                    <div class="textDec">
+                        <h6>{{ decision.titulo }}</h6>
+                        <h6>{{ decision.nombre }}</h6>
+                    </div>
+                </div>
+            </a>
+        </article>
     </div>
     <app-new-btn [idPadre]="id" class="crearPostBtn"></app-new-btn>
 </div>
