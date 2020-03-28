@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.banner{
+    background: url("../../assets/images/27.jpg")fixed center/cover; /* esto queda a la espera de hacer la imagen para el hero */
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: white;
+    opacity: 0.1;
+}
+
+.banner__info{
+    padding: 0.3em;
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    color: #e17b68; /* #585858 */
+    margin: auto;
+}
+
+.banner__title{
+    line-height: 1.5;
+    font-size: 2em;
+}
+
+.banner__p{
+    line-height: 2em;
+    font-size: 0.9;
+}
