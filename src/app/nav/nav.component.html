@@ -10,7 +10,7 @@
           </a>
           <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
             <li (click)="irSeccion($event)">Inicio</li>
-            <li (click)="irSeccion($event)" >Búsqueda</li>
+            <li (click)="irSeccion($event)">Búsqueda</li>
             <li (click)="irSeccion($event)">Mi area</li>
           </ul>
         </li>
@@ -27,8 +27,12 @@
     <div *ngIf="postRoute" class="col-5 section-title">
       <h2>{{sectionName}}</h2>
     </div>
-    <div class="col-3 search"><input type="text"><button><img src="../../assets/images/search.svg" alt=""></button>
-    </div>
+    <form class="col-3 search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)" >
+      <input type="text" name="busqueda" ngModel>
+      <button>
+        <img src="../../assets/images/search.svg" alt="">
+      </button>
+    </form>
     <div class="col-2 user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
   </div>
 </nav>

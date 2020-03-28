@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IAppState } from '../store';
 import { NgRedux } from '@angular-redux/store';
+import { SEARCH } from '../actions';
 
 @Component({
   selector: 'app-nav',
@@ -67,6 +68,14 @@ export class NavComponent implements OnInit {
 
   }
 
+  manejarBusqueda(busqueda){
+    console.log(busqueda);
+    this.ngRedux.dispatch({
+      type: SEARCH,
+      search: busqueda
+    });
+    this.router.navigate(['/search']);
+  }
 
   // Va a la página anterior sin recargar angular
   retroceder() {

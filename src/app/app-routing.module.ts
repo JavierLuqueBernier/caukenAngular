@@ -10,6 +10,7 @@ import { MyAreaComponent } from './my-area/my-area.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CoverComponent } from './cover/cover.component';
 import { DecisionComponent } from './decision/decision.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'new-branch', component: NewComponent },
   { path: 'new-post', component: NewComponent, data: { animation: 'New' } },
   { path: 'myarea', component: MyAreaComponent },
+  { path: 'search', component: BusquedaComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'decision', component: DecisionComponent },
   { path: '**', redirectTo: '/' }

@@ -1,4 +1,4 @@
-import { SECTION_NAME, REGISTER_ACTIVE, LOGIN_ACTIVE, DECISION_ACTIVE, ROUTE_AFTER, POST_DATA, ID_PADRE } from './actions';
+import { SECTION_NAME, REGISTER_ACTIVE, LOGIN_ACTIVE, DECISION_ACTIVE, ROUTE_AFTER, POST_DATA, ID_PADRE, SEARCH } from './actions';
 import { tassign } from 'tassign';
 
 
@@ -11,6 +11,7 @@ export interface IAppState {
   routeAfter: string;
   postData: any;
   idPadre: number;
+  search: string;
 
 
 }
@@ -24,7 +25,8 @@ export const INITIAL_STATE: IAppState = {
   postData: {
 
   },
-  idPadre: null
+  idPadre: null,
+  search: null,
 };
 
 export function rootReducer(state, action): IAppState {
@@ -52,6 +54,9 @@ export function rootReducer(state, action): IAppState {
     }
     case ID_PADRE: {
       return tassign(state, { idPadre: action.idPadre });
+    }
+    case SEARCH: {
+      return tassign(state, { search: action.search });
     }
   }
   return state;

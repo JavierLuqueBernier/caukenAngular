@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,7 @@ import { NewComponent } from './new/new.component';
 import { PostComponent } from './post/post.component';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { NewBtnComponent } from './new-btn/new-btn.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { NewBtnComponent } from './new-btn/new-btn.component';
     CoversListComponent,
     NewComponent,
     PostComponent,
-    NewBtnComponent
+    NewBtnComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { NewBtnComponent } from './new-btn/new-btn.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgReduxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

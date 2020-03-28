@@ -78,6 +78,10 @@ export class PostService {
     return this.httpClient.delete(`${this.baseUrl}/comments/delete`, httpOptions).toPromise();
   }
 
+  find(parameters): Promise<any>{
+    return this.httpClient.post(`${this.baseUrl}/find`, parameters).toPromise();
+  }
+
 
   create(newPostForm): Promise<any> {
     newPostForm.fk_usuario = newPostForm.userid = localStorage.getItem('usuario');
