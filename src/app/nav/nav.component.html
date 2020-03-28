@@ -1,38 +1,67 @@
-<nav class="container-fluid navSup" *ngIf="!ocultar">
+<nav class="" *ngIf="!ocultarNav">
 
-  <div class="row">
-    <div class="col-2 hamburguer">
-      <ul>
-        <li *ngIf="!postRoute">
-          <a (click)="desplegarMenu()">
-            <img src="../../assets/images/hamburguer.svg" alt="icon" *ngIf="!desplegar">
-            <img src="../../assets/images/close.svg" alt="icon" *ngIf="desplegar">
-          </a>
-          <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
-            <li (click)="irSeccion($event)">Inicio</li>
-            <li (click)="irSeccion($event)">Búsqueda</li>
-            <li (click)="irSeccion($event)">Mi area</li>
-          </ul>
-        </li>
-        <li *ngIf="postRoute">
-          <a (click)="retroceder()">
-            <img src="../../assets/images/back-arrow.svg" alt="">
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div *ngIf="!postRoute" class="col-5 section-title">
-      <h2>{{sectionName}}</h2>
-    </div>
-    <div *ngIf="postRoute" class="col-5 section-title">
-      <h2>{{sectionName}}</h2>
-    </div>
-    <form class="col-3 search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)" >
-      <input type="text" name="busqueda" ngModel>
-      <button>
-        <img src="../../assets/images/search.svg" alt="">
-      </button>
-    </form>
-    <div class="col-2 user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
+  <div class="hamburguer">
+    <ul>
+      <li *ngIf="!postRoute">
+        <a (click)="desplegarMenu()">
+          <img src="../../assets/images/hamburguer.svg" alt="icon" *ngIf="!desplegar">
+          <img src="../../assets/images/close.svg" alt="icon" *ngIf="desplegar">
+        </a>
+        <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
+          <li (click)="irSeccion($event)">Inicio</li>
+          <li (click)="irSeccion($event)">Búsqueda</li>
+          <li (click)="irSeccion($event)">Mi area</li>
+        </ul>
+      </li>
+      <li *ngIf="postRoute">
+        <a (click)="retroceder()">
+          <img src="../../assets/images/back-arrow.svg" alt="">
+        </a>
+      </li>
+    </ul>
   </div>
+
+  <div *ngIf="postRoute" class="section-title">
+    <h2>{{sectionName}}</h2>
+  </div>
+  <form class="search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)"
+    *ngIf="!searchActive">
+    <input type="text" name="busqueda" ngModel>
+    <button>
+      <img src="../../assets/images/search.svg" alt="">
+    </button>
+  </form>
+  <form class="search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)"
+    *ngIf="searchActive">
+    <input type="text" name="busqueda" ngModel>
+    <button>
+      <img src="../../assets/images/search.svg" alt="">
+    </button>
+  </form>
+  <div class="user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
+  <form class="advancedSearch" *ngIf="searchActive" [formGroup]="advancedSearch">
+    <fieldset class="type">
+      <div class="control">
+        <label>
+          título
+        </label>
+        <input type="checkbox" name="titulo" id="" formControlName="titulo">
+      </div>
+      <div class="control">
+        <label>
+          categoria
+        </label>
+        <input type="checkbox" name="categoria" id="" formControlName="categoria">
+      </div>
+
+      <div class="control">
+        <label>
+          usuario
+        </label>
+        <input type="checkbox" name="usuario" id="" formControlName="usuario">
+      </div>
+
+    </fieldset>
+
+  </form>
 </nav>

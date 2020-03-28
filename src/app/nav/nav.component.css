@@ -6,12 +6,16 @@ nav {
   background: var(--background2);
   height: fit-content;
   z-index: 100;
-  padding: .75em 1em;
+  padding: .2em 1em;
   filter: drop-shadow(1px 1px 3px var(--shadow1));
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .hamburguer {
   position: relative;
+  width: 10%;
 }
 
 .hamburguer img {
@@ -51,15 +55,17 @@ nav {
 
 .hamburguer li {
   transition: .1s;
-  padding:.125em 1em;
+  padding: .125em 1em;
 }
 
 .submenu li:hover {
   background: var(--color3);
-  color:var(--color4)
+  color: var(--color4)
 }
 
-.section-title {}
+.section-title {
+  width: 40%;
+}
 
 .section-title h2 {
   margin: 0;
@@ -67,31 +73,15 @@ nav {
 
 .search {
   position: relative;
+  width: 40%;
 }
 
-.search input {
+.search>input {
   position: relative;
   width: 100%;
   border: none;
   background: none;
-  border-bottom: 0px solid var(--color1);
-  transition: .25s
-}
-
-.search input::after {
-  content: 'dsfdsfs';
-  display: block;
-  position: absolute;
-  background: red;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
-  border-bottom: 2px solid var(--color1);
-  z-index: 300;
-}
-
-.search:hover input {
-  width: 100%;
+  border-bottom: 1px solid var(--color1);
 }
 
 .search button {
@@ -106,13 +96,36 @@ nav {
   height: 1em;
 }
 
+.advancedSearch {
+  margin-top: .5em;
+  width: 100%;
+}
+
+.advancedSearch .type {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.advancedSearch .type input {
+  display: inline;
+  margin: .3em 1em;
+}
+
+.advancedSearch .type label {
+  margin:0;
+}
+
 .user {
   height: 1.5em;
+  width: 10%;
 }
 
 .user img {
+  display: block;
   height: 100%;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
 nav ul li:first-child {}

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
-import { REGISTER_ACTIVE } from '../actions';
+import { OCULTAR_NAV } from '../actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -43,9 +43,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.ngRedux.dispatch({
-      type: REGISTER_ACTIVE,
-      registerActive: true,
-
+      type: OCULTAR_NAV,
+      ocultarNav: true,
     });
   }
 
@@ -77,8 +76,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnDestroy() {
     this.ngRedux.dispatch({
-      type: REGISTER_ACTIVE,
-      registerActive: false,
+      type: OCULTAR_NAV,
+      ocultarNav: false,
 
     });
 

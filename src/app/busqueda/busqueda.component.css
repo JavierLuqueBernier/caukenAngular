@@ -1,5 +1,9 @@
 .search {
-  padding: 1em;
+  padding: 1rem 1rem 0;
+}
+
+.warning {
+  text-align: center;
 }
 
 .search ul {
@@ -26,12 +30,14 @@
   width: 20%;
   height: 100%;
   overflow: hidden;
-  background: var(--color5)
+  background: var(--color3)
 }
 
 .search ul .resultCont .imgCont img {
   display: block;
   height: 100%;
+  font-size: .5rem;
+  text-align: center;
 }
 
 .search ul .resultCont .resumenCont {
@@ -43,21 +49,21 @@
 }
 
 .search ul .resultCont .resumenCont .titleCont h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   margin: .5em;
 }
 
 .search ul .resultCont .resumenCont .dataCont {
   width: 90%;
-  margin:0 auto;
+  margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   border-radius: .2em;
   overflow: hidden;
   box-shadow: 1px 1px 3px var(--shadow1) inset;
-  padding:.3em;
+  padding: .3em;
 }
 
 .search ul .resultCont .resumenCont .dataCont .fechaCont, .search ul .resultCont .resumenCont .dataCont .categoryCont {
@@ -99,5 +105,4 @@
   transform: translate(-50%, -50%);
   width: 80%;
   border-radius: 50%;
-
 }

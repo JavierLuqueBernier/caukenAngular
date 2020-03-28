@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
-import { LOGIN_ACTIVE } from '../actions';
+import { OCULTAR_NAV } from '../actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.ngRedux.dispatch({
-      type: LOGIN_ACTIVE,
-      loginActive: true
+      type: OCULTAR_NAV,
+      ocultarNav: true,
+
     });
   }
 
@@ -70,10 +71,10 @@ export class LoginComponent implements OnInit {
       });
     } */
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
     this.ngRedux.dispatch({
-      type: LOGIN_ACTIVE,
-      loginActive: false
+      type: OCULTAR_NAV,
+      ocultarNav: false,
     });
   }
 
