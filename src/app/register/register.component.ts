@@ -60,11 +60,14 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  enviarFormulario() {
+    console.log('Aquí llego');
+    console.log(this.formRegister.value);
     this.formularioEnviado = true;
     this.userService.registro(this.formRegister.value)
       .then(response => {
         console.log(response);
+        this.dirigirHome();
       })
       .catch(err => {
         this.errores = err.error;
@@ -89,10 +92,8 @@ export class RegisterComponent implements OnInit {
   ngOnDestroy() {
     this.ngRedux.dispatch({
       type: OCULTAR_NAV,
-      ocultarNav: false,
-
+     ocultarNav: false,
     });
-
   }
 
 }

@@ -4,7 +4,7 @@
             <div class="col-12" id="logo">
                 <img class="imagotipo" src="../../assets/images/Imagotipo.svg" alt="">
             </div>
-            <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+            <form [formGroup]="formRegister" (ngSubmit)="enviarFormulario()">
                 <fieldset class="borde">
                     <legend class="w-auto">Email</legend>
                     <input type="text" class="form-control" formControlName="email" placeholder="Escribe tu email...">
@@ -35,8 +35,7 @@
                         placeholder="Introduzca una URL">
                 </fieldset>
 
-                <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid"
-                    (click)="dirigirHome()">INICIAR SESIÓN</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid">¡REGÍSTRATE!</button>
                 <p class="error" *ngIf="formularioEnviado && !formRegister.valid"> Uy! Parece que algún campo no está
                     bien relleno!</p>
             </form>
