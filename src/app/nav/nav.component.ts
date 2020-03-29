@@ -39,6 +39,7 @@ export class NavComponent implements OnInit {
     this.searchActive = false;
     this.advancedSearch = new FormGroup({
       titulo: new FormControl(false),
+      contenido: new FormControl(false),
       usuario: new FormControl(false),
       categoria: new FormControl(false),
     })
@@ -73,9 +74,10 @@ export class NavComponent implements OnInit {
   manejarBusqueda(busqueda) {
     const searchForms = {
       word: busqueda,
+      titulo: this.advancedSearch.get('titulo').value,
+      contenido: this.advancedSearch.get('contenido').value,
       usuario: this.advancedSearch.get('usuario').value,
       categoria: this.advancedSearch.get('categoria').value,
-      titulo: this.advancedSearch.get('titulo').value
     };
     this.ngRedux.dispatch({
       type: SEARCH,
