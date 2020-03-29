@@ -78,7 +78,7 @@ export class PostService {
     return this.httpClient.delete(`${this.baseUrl}/comments/delete`, httpOptions).toPromise();
   }
 
-  find(parameters): Promise<any>{
+  find(parameters): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/find`, parameters).toPromise();
   }
 
@@ -98,6 +98,22 @@ export class PostService {
       postid: id
     };
     return this.httpClient.put(`${this.baseUrl}/likes`, body).toPromise();
+  }
+
+  getByUser(parameters): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/getbyuser`, parameters).toPromise();
+  }
+
+  getPrivateByUser(parameters){
+    parameters.userid = localStorage.getItem('usuario');
+    parameters.usertoken = localStorage.getItem('token');
+    return this.httpClient.post(`${this.baseUrl}/privatebyuser`, parameters).toPromise();
+  }
+
+  getReadsByUser(parameters){
+    parameters.fk_usuario = parameters.userid = localStorage.getItem('usuario');
+    parameters.usertoken = localStorage.getItem('token');
+    return this.httpClient.post(`${this.baseUrl}/userreads`, parameters).toPromise();
   }
   /*  dummy(idAlumno: string): Promise<any> {
      const httpOptions = {

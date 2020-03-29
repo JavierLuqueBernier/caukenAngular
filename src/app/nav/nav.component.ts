@@ -86,6 +86,10 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/search']);
   }
 
+  navegarAreaUsuario(){
+    this.router.navigate(['/myarea'])
+  }
+
   // Va a la página anterior sin recargar angular
   retroceder() {
     this.location.back();

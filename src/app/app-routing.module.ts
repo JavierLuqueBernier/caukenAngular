@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'cover/:pageId', component: CoverComponent, data: { animation: 'Cover' } },
   { path: 'new-branch', component: NewComponent },
   { path: 'new-post', component: NewComponent, data: { animation: 'New' } },
-  { path: 'myarea', component: MyAreaComponent },
+  { path: 'myarea/:userId', component: MyAreaComponent },
   { path: 'search', component: BusquedaComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'decision', component: DecisionComponent },

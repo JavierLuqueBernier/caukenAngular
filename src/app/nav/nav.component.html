@@ -24,6 +24,7 @@
   <div *ngIf="postRoute" class="section-title">
     <h2>{{sectionName}}</h2>
   </div>
+
   <form class="search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)"
     *ngIf="!searchActive">
     <input type="text" name="busqueda" ngModel>
@@ -31,6 +32,7 @@
       <img src="../../assets/images/search.svg" alt="">
     </button>
   </form>
+
   <form class="search" novalidate #searchForm="ngForm" (ngSubmit)="manejarBusqueda(searchForm.value.busqueda)"
     *ngIf="searchActive">
     <input type="text" name="busqueda" ngModel>
@@ -38,7 +40,11 @@
       <img src="../../assets/images/search.svg" alt="">
     </button>
   </form>
-  <div class="user"><img src="../../assets/images/avatarlow.jpg" alt=""></div>
+
+  <div class="user">
+    <a (click)="navegarAreaUsuario()"><img src="../../assets/images/avatarlow.jpg" alt=""></a>
+  </div>
+
   <form class="advancedSearch" *ngIf="searchActive" [formGroup]="advancedSearch">
     <fieldset class="type">
       <div class="control">
