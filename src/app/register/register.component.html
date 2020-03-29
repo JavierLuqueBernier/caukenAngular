@@ -1,31 +1,45 @@
 <div class="container-fluid">
     <div class="container" id="formulario">
         <div class="row">
-                <div class="col-12" id="logo">
-                    <img class="imagotipo" src="../../assets/images/Imagotipo.svg" alt="">
-                </div>
-                <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-                    <fieldset class="borde">
-                        <legend  class="w-auto">Email</legend>
-                        <input type="text" class="form-control" formControlName="email" placeholder="Escribe tu email...">
-                    </fieldset>
-                    <fieldset class="borde">
-                        <legend  class="w-auto">Nombre</legend>
-                        <input type="text" class="form-control" formControlName="nombre" placeholder="Escribe tu nombre de usuario...">
-                    </fieldset>
-                    <fieldset class="borde">
-                        <legend  class="w-auto">Contraseña</legend>
-                        <input type="password" class="form-control" formControlName="password" placeholder="Escribe tu contraseña...">
-                    </fieldset>
-                    <fieldset class="borde">
-                        <legend  class="w-auto">Contraseña</legend>
-                        <input type="password" class="form-control" formControlName="repite_password" placeholder="Repite tu contraseña...">
-                    </fieldset>
+            <div class="col-12" id="logo">
+                <img class="imagotipo" src="../../assets/images/Imagotipo.svg" alt="">
+            </div>
+            <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+                <fieldset class="borde">
+                    <legend class="w-auto">Email</legend>
+                    <input type="text" class="form-control" formControlName="email" placeholder="Escribe tu email...">
+                </fieldset>
+                <fieldset class="borde">
+                    <legend class="w-auto">Nombre</legend>
+                    <input type="text" class="form-control" formControlName="nombre"
+                        placeholder="Escribe tu nombre de usuario...">
+                </fieldset>
+                <fieldset class="borde">
+                    <legend class="w-auto">Contraseña</legend>
+                    <input type="password" class="form-control" formControlName="password"
+                        placeholder="Escribe tu contraseña...">
+                </fieldset>
+                <fieldset class="borde">
+                    <legend class="w-auto">Contraseña</legend>
+                    <input type="password" class="form-control" formControlName="repite_password"
+                        placeholder="Repite tu contraseña...">
+                </fieldset>
+                <fieldset class="borde">
+                    <legend class="w-auto">Biografía</legend>
+                    <input type="text" class="form-control" formControlName="biografia"
+                        placeholder="Escribe una breve introducción sobre ti">
+                </fieldset>
+                <fieldset class="borde">
+                    <legend class="w-auto">Foto de perfil</legend>
+                    <input type="text" class="form-control" formControlName="imagen_perfil"
+                        placeholder="Introduzca una URL">
+                </fieldset>
 
-                    <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid" (click)="dirigirHome()">INICIAR SESIÓN</button>
-                    <p class="error" *ngIf="formularioEnviado && !formRegister.valid"> Uy! Parece que algún campo no está bien relleno!</p>
-                </form>
+                <button type="submit" class="btn btn-primary" [disabled]="!formRegister.valid"
+                    (click)="dirigirHome()">INICIAR SESIÓN</button>
+                <p class="error" *ngIf="formularioEnviado && !formRegister.valid"> Uy! Parece que algún campo no está
+                    bien relleno!</p>
+            </form>
         </div>
     </div>
 </div>
-

@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   ) {
     this.formularioEnviado = false;
     this.formRegister = new FormGroup({
+
       email: new FormControl('', [
         Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)
       ]),
@@ -36,7 +37,18 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [
         Validators.pattern(/^([a-zA-Z0-9@*#]{8,15})$/)
       ]),
-      repite_password: new FormControl()
+      repite_password: new FormControl(),
+
+      biografia: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(255)
+      ]),
+
+      imagen_perfil: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(255)
+      ])
+
     }, [this.passwordValidator]);
     this.errores = [];
   }
