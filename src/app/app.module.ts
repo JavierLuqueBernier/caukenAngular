@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +30,7 @@ import { PostComponent } from './post/post.component';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { NewBtnComponent } from './new-btn/new-btn.component';
 import { GeoMapComponent } from './geo-map/geo-map.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { GeoMapComponent } from './geo-map/geo-map.component';
     NewComponent,
     PostComponent,
     NewBtnComponent,
-    GeoMapComponent
+    GeoMapComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { GeoMapComponent } from './geo-map/geo-map.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgReduxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

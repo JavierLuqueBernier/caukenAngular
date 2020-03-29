@@ -1,30 +1,47 @@
-import { SECTION_NAME, REGISTER_ACTIVE, LOGIN_ACTIVE, DECISION_ACTIVE, ROUTE_AFTER, POST_DATA, ID_PADRE } from './actions';
+import {
+  SECTION_NAME,
+  /*  REGISTER_ACTIVE,
+  LOGIN_ACTIVE, */
+  DECISION_ACTIVE,
+  ROUTE_AFTER,
+  POST_DATA,
+  ID_PADRE,
+  SEARCH,
+  SEARCH_ACTIVE,
+  OCULTAR_NAV
+} from './actions';
+
 import { tassign } from 'tassign';
 
 
 export interface IAppState {
   sectionName: string;
-  registerActive: boolean;
+  ocultarNav: boolean;
   decisionActive: boolean;
-  loginActive: boolean;
-  // Es volver a la ruta en la que estábamos tras hacer login;
+  /* loginActive:boolean;
+    registerActive:boolean; */
   routeAfter: string;
   postData: any;
   idPadre: number;
+  search: any;
+  searchActive: boolean;
 
 
 }
 
 export const INITIAL_STATE: IAppState = {
   sectionName: '',
-  registerActive: false,
-  loginActive: false,
+  ocultarNav: false,
   decisionActive: false,
+  /* registerActive: false, */
+  /* loginActive: false, */
   routeAfter: '',
   postData: {
 
   },
-  idPadre: null
+  idPadre: null,
+  search: {},
+  searchActive: false,
 };
 
 export function rootReducer(state, action): IAppState {
@@ -35,14 +52,20 @@ export function rootReducer(state, action): IAppState {
 
 
     }
-    case REGISTER_ACTIVE: {
-      return tassign(state, { registerActive: action.registerActive });
-    }
-    case LOGIN_ACTIVE: {
-      return tassign(state, { loginActive: action.loginActive });
-    }
+    /*  case REGISTER_ACTIVE: {
+       return tassign(state, { registerActive: action.registerActive });
+     }
+     case LOGIN_ACTIVE: {
+       return tassign(state, { loginActive: action.loginActive });
+     }
+     case DECISION_ACTIVE: {
+       return tassign(state, { decisionActive: action.decisionActive });
+     } */
     case DECISION_ACTIVE: {
       return tassign(state, { decisionActive: action.decisionActive });
+    }
+    case OCULTAR_NAV: {
+      return tassign(state, { ocultarNav: action.ocultarNav });
     }
     case ROUTE_AFTER: {
       return tassign(state, { routeAfter: action.routeAfter });
@@ -52,6 +75,13 @@ export function rootReducer(state, action): IAppState {
     }
     case ID_PADRE: {
       return tassign(state, { idPadre: action.idPadre });
+    }
+    case SEARCH: {
+      return tassign(state, { search: action.search });
+    }
+
+    case SEARCH_ACTIVE: {
+      return tassign(state, { searchActive: action.searchActive })
     }
   }
   return state;

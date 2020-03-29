@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IAppState } from '../store';
 import { NgRedux } from '@angular-redux/store';
+import { SEARCH } from '../actions';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -16,8 +18,10 @@ export class NavComponent implements OnInit {
   registerActive: boolean;
   loginActive: boolean;
   decisionActive: boolean;
-  ocultar: boolean;
+  searchActive: boolean;
+  ocultarNav: boolean;
   desplegar: boolean;
+  advancedSearch: FormGroup;
 
   constructor(
     private location: Location,
@@ -25,17 +29,20 @@ export class NavComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>) {
     // Detecta si está en /pagina o /cover
     // Habría que cambiarlo por redux
-    this.ocultar = false;
+    this.ocultarNav = false;
     router.events.subscribe(() => {
       this.url = this.location.path();
       this.postRoute = (this.url.slice(0, 5) === '/page' || this.url.slice(0, 6) === '/cover') ? true : false;
 
     });
     this.desplegar = false;
-
-
-
-
+    this.searchActive = false;
+    this.advancedSearch = new FormGroup({
+      titulo: new FormControl(false),
+      contenido: new FormControl(false),
+      usuario: new FormControl(false),
+      categoria: new FormControl(false),
+    })
   }
 
   ngOnInit() {
@@ -43,30 +50,41 @@ export class NavComponent implements OnInit {
     this.ngRedux.subscribe(() => {
       const state = this.ngRedux.getState();
       this.sectionName = state.sectionName;
-      if (state.registerActive || state.loginActive || state.decisionActive) {
-        this.ocultar = true;
+      if (state.ocultarNav) {
+        this.ocultarNav = true;
       } else {
-        this.ocultar = false;
+        this.ocultarNav = false;
       }
-
+      if (state.searchActive) {
+        this.searchActive = true;
+      }
+      else {
+        this.searchActive = false;
+      }
     });
-
-
-
-
   }
 
   desplegarMenu() {
     this.desplegar = !this.desplegar;
-
   }
 
   irSeccion($event) {
-
-
-
   }
 
+  manejarBusqueda(busqueda) {
+    const searchForms = {
+      word: busqueda,
+      titulo: this.advancedSearch.get('titulo').value,
+      contenido: this.advancedSearch.get('contenido').value,
+      usuario: this.advancedSearch.get('usuario').value,
+      categoria: this.advancedSearch.get('categoria').value,
+    };
+    this.ngRedux.dispatch({
+      type: SEARCH,
+      search: searchForms
+    });
+    this.router.navigate(['/search']);
+  }
 
   // Va a la página anterior sin recargar angular
   retroceder() {

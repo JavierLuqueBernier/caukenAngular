@@ -1,0 +1,108 @@
+.search {
+  padding: 1rem 1rem 0;
+}
+
+.warning {
+  text-align: center;
+}
+
+.search ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search ul a {
+  text-decoration: none;
+  color: var(--color1);
+}
+
+.search ul .resultCont {
+  display: flex;
+  height: 6em;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 4px 4px 10px var(--shadow1);
+}
+
+.search ul .resultCont .imgCont {
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color3)
+}
+
+.search ul .resultCont .imgCont img {
+  display: block;
+  height: 100%;
+  font-size: .5rem;
+  text-align: center;
+}
+
+.search ul .resultCont .resumenCont {
+  width: 70%;
+}
+
+.search ul .resultCont .resumenCont .titleCont {
+  width: 100%;
+}
+
+.search ul .resultCont .resumenCont .titleCont h3 {
+  font-size: 1rem;
+  text-align: center;
+  margin: .5em;
+}
+
+.search ul .resultCont .resumenCont .dataCont {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  border-radius: .2em;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px var(--shadow1) inset;
+  padding: .3em;
+}
+
+.search ul .resultCont .resumenCont .dataCont .fechaCont, .search ul .resultCont .resumenCont .dataCont .categoryCont {
+  text-align: center;
+}
+
+.search ul .resultCont .resumenCont .dataCont h4 {
+  font-size: .75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.search ul .resultCont .likeCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search ul .resultCont .likeCont img {
+  display: block;
+  margin-right: .5em;
+  height: .75rem;
+}
+
+.search ul .resultCont .likeCont span {
+  display: block;
+  font-size: .75rem;
+}
+
+.search ul .resultCont .userCont {
+  position: relative;
+  width: 10%;
+}
+
+.search ul .resultCont .userCont img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  border-radius: 50%;
+}
