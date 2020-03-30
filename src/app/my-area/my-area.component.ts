@@ -32,11 +32,6 @@ export class MyAreaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.activatedRoute.params.subscribe(async params => {
-      this.id = params.id;
-      console.log(this.id);
-
-    });
     const login = await this.userService.checkToken();
     if (login['login'] === false) {
       // Si el login no es válido se almacena en redux esta dirección para que el login pueda retornar aquí cuando valide

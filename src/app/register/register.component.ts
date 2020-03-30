@@ -66,11 +66,12 @@ export class RegisterComponent implements OnInit {
     this.userService.registro(this.formRegister.value)
       .then(response => {
         console.log(response);
-        this.dirigirHome();
+
       })
       .catch(err => {
         this.errores = err.error;
       });
+    this.dirigirHome();
   }
 
   passwordValidator(form) {

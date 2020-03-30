@@ -32,4 +32,8 @@ export class UserService {
 
   }
 
+  getAvatar(parameters): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/getavatar`, parameters).toPromise();
+  }
+
 }

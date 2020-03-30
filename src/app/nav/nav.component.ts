@@ -3,8 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IAppState } from '../store';
 import { NgRedux } from '@angular-redux/store';
-import { SEARCH } from '../actions';
+import { SEARCH, USER_ACTIVE } from '../actions';
 import { FormGroup, FormControl } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,11 +23,15 @@ export class NavComponent implements OnInit {
   ocultarNav: boolean;
   desplegar: boolean;
   advancedSearch: FormGroup;
+  userImage: string;
+  usuarioConectado: boolean;
 
   constructor(
     private location: Location,
     private router: Router,
-    private ngRedux: NgRedux<IAppState>) {
+    private ngRedux: NgRedux<IAppState>,
+    private userService: UserService
+  ) {
     // Detecta si está en /pagina o /cover
     // Habría que cambiarlo por redux
     this.ocultarNav = false;
@@ -42,10 +47,13 @@ export class NavComponent implements OnInit {
       contenido: new FormControl(false),
       usuario: new FormControl(false),
       categoria: new FormControl(false),
-    })
+    });
+    this.userImage = '../../assets/images/disconnected.png';
+    this.usuarioConectado = false;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.checkLogin();
     // Se subscribe a redux para recibir el nombre de la sección enviado desde CoverC
     this.ngRedux.subscribe(() => {
       const state = this.ngRedux.getState();
@@ -57,11 +65,31 @@ export class NavComponent implements OnInit {
       }
       if (state.searchActive) {
         this.searchActive = true;
-      }
-      else {
+      } else {
         this.searchActive = false;
       }
+      if (state.userActive) {
+        this.checkLogin();
+
+      }
     });
+  }
+
+  async checkLogin() {
+    const login = await this.userService.checkToken();
+    if (login['login'] === true) {
+      const userId = localStorage.getItem('usuario');
+      const user = await this.userService.getAvatar({ id: userId });
+      console.log(user);
+      if (user.imagen_perfil === null || user.imagen_perfil === '') {
+        this.userImage = '../../assets/images/avatarDummy.png';
+      } else {
+        this.userImage = user.imagen_perfil;
+      }
+      this.usuarioConectado = true;
+    } else {
+      this.usuarioConectado = false;
+    }
   }
 
   desplegarMenu() {
@@ -86,10 +114,21 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/search']);
   }
 
-  navegarAreaUsuario(){
+  navegarAreaUsuario() {
     this.router.navigate(['/myarea'])
   }
 
+
+  desconectar() {
+    localStorage.clear();
+    this.ngRedux.dispatch({
+      type: USER_ACTIVE,
+      userActive: false
+    });
+    this.userImage = '../../assets/images/disconnected.png';
+    this.usuarioConectado = false;
+    this.router.navigate(['/home']);
+  }
   // Va a la página anterior sin recargar angular
   retroceder() {
     this.location.back();

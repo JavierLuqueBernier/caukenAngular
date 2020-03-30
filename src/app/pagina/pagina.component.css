@@ -110,6 +110,48 @@
   height: 100%;
 }
 
+.post .postActions {
+  display: flex;
+  flex-flow: row wrap;
+  height:2rem;
+  margin-bottom:1rem;
+  justify-content: space-evenly;
+}
+
+.post .postActions>* {
+  position: relative;
+}
+
+.post .postActions>*>* {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.post .autor {
+  height: 1.5em;
+  width: 30%;
+}
+
+.post .autor img {
+  display: block;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.post .likes {
+  width: 30%;
+}
+
+.post .likes app-likes {
+  width: 100%;
+}
+
+.post .share {
+  width: 30%;
+}
+
 .post .decision {
   position: relative;
   bottom: 0;

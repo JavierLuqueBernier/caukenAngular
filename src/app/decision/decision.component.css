@@ -2,97 +2,98 @@
     border: 1px solid red;
 } */
 
+.decisin {
+  background-color: rgba(33, 33, 33, 0.9);
+  border-radius: 1rem 1rem 0 0;
+  height: auto;
+  position: relative;
+  padding-bottom:1rem;
+}
+
 .scroller::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scroller {
-    overflow-y: hidden;
-    overflow-x: scroll;
-    display: flex;
-    scrollbar-width: none;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  scrollbar-width: none;
 }
 
-.decisionCont a{
-    display: block;
-    text-decoration: none;
+.scroller article{
+  width:33%;
+}
+
+.decisionCont a {
+  display: block;
+  text-decoration: none;
 }
 
 .decision {
-    width: 168px;
-    height: 244px;
-    overflow: hidden;
-    margin: 1em;
-    border-radius: .5em;
-    /* box-shadow: 3px 3px 7px var(--shadow1);
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: .5em;
+  /* box-shadow: 3px 3px 7px var(--shadow1);
     background: var(--background1);
     background-color: rgba(33, 33, 33, 0.9); */
 }
 
 .decision .imgDec {
-    position: relative;
-    width: 169px;
-    height: 169px;
-    overflow: hidden;
-    border-radius: 50%;
-    background-color: var(--background4);
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: var(--background4);
+  margin: 0 auto;
 }
 
 .decision .imgDec img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
 }
 
-.textDec{
-    padding: .875rem 1rem 1rem;
-    text-decoration: none;
-    color: #f3f3f3;
+.textDec {
+  text-decoration: none;
+  color: #f3f3f3;
 }
 
-
-.decisin {
-    background-color: rgba(33, 33, 33, 0.9);
-    border-radius: 1rem 1rem 0 0;
-    min-height: 100vh;
-    position: relative;
-}
-
-p{
-    width: 330px;
-    height: 80px;
-    font-family: Roboto;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.15px;
-    color: #f3f3f3;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 2.5em;
+p {
+  width: 330px;
+  height: 80px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.15px;
+  color: #f3f3f3;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 2.5em;
 }
 
 .decision h6 {
-    line-height: 1.5em;
-    text-align: center;
-    font-size:.875rem;
+  line-height: 1.5em;
+  text-align: center;
+  font-size: .875rem;
 }
 
-.crearPostBtn{
-
-    position: absolute;
-    width: auto;
-    right: 2em;
-    transform:translate(-50%,-50%);
-    /* transform: translateX(-50%); */
-    bottom: 18em;
+.crearPostBtn {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin:3rem auto;
+  /* transform: translateX(-50%); */
 }
 
-.crearPostBtn img{
-    display: block;
-    width:100%;
+.crearPostBtn img {
+  display: block;
+  width: 100%;
 }

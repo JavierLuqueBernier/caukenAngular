@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
-import { OCULTAR_NAV } from '../actions';
+import { OCULTAR_NAV, USER_ACTIVE } from '../actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,7 +48,10 @@ export class LoginComponent implements OnInit {
         console.log(response);
         localStorage.setItem('token', response['success']);
         localStorage.setItem('usuario', response['userid']);
-
+        this.ngRedux.dispatch({
+          type: USER_ACTIVE,
+          userActive: true,
+        });
         // se obtiene la ruta de la que se venía antes de hacer login y se navega:
         const ruta = this.ngRedux.getState().routeAfter;
 

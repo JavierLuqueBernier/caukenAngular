@@ -20,29 +20,7 @@ nav {
 
 .hamburguer img {
   cursor: pointer;
-}
-
-.hamburguer .submenu {
-  position: absolute;
-  top: 1.5em;
-  left: 0;
-  font-size: 1.25rem;
-  background: var(--background2);
-  height: 0em;
-  overflow: hidden;
-  padding: 0em 0em;
-  transition: .25s;
-  border-radius: 0 0 1em 0;
-}
-
-.hamburguer .submenu.replegar {
-  height: 0em;
-  padding: 0em 0em;
-}
-
-.hamburguer .submenu.desplegar {
-  height: 6em;
-  padding: .5em 0em;
+  height: 2rem;
 }
 
 .hamburguer ul, .hamburguer nav li {
@@ -55,7 +33,6 @@ nav {
 
 .hamburguer li {
   transition: .1s;
-  padding: .125em 1em;
 }
 
 .submenu li:hover {
@@ -113,19 +90,60 @@ nav {
 }
 
 .advancedSearch .type label {
-  margin:0;
+  margin: 0;
 }
 
 .user {
-  height: 1.5em;
+  height: 2rem;
   width: 10%;
+
+}
+
+.user .imgCont{
+  position:relative;
+  height:2rem;
+  width:2rem;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .user img {
-  display: block;
+ position: absolute;
+ top:50%;
+ left:50%;
+ transform: translate(-50%,-50%);
   height: 100%;
-  border-radius: 50%;
   margin: 0 auto;
+}
+
+.user .submenu {
+  position: fixed;
+  top: 2.2rem;
+  right: 0;
+  width:100%;
+  font-size: 1.25rem;
+  background: var(--background2);
+  height: 0em;
+  overflow: hidden;
+  padding: 0em 0em;
+  transition: .25s;
+  border-radius: 0 0 0em 1em;
+  list-style: none;
+}
+
+.user .submenu.replegar {
+  height: 0em;
+  padding: 0em 0em;
+}
+
+.user .submenu.desplegar {
+  height: fit-content;
+  padding: .5em 0em;
+}
+
+.user .submenu li{
+  text-align:center;
+font-size:1rem;
 }
 
 nav ul li:first-child {}

@@ -8,3 +8,4 @@ export const POST_DATA = 'POST_DATA';
 export const ID_PADRE = 'ID_PADRE';
 export const SEARCH = 'SEARCH';
 export const SEARCH_ACTIVE = 'SEARCH_ACTIVE';
+export const USER_ACTIVE = 'USER_ACTIVE';

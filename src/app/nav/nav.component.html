@@ -2,20 +2,9 @@
 
   <div class="hamburguer">
     <ul>
-      <li *ngIf="!postRoute">
-        <a (click)="desplegarMenu()">
-          <img src="../../assets/images/hamburguer.svg" alt="icon" *ngIf="!desplegar">
-          <img src="../../assets/images/close.svg" alt="icon" *ngIf="desplegar">
-        </a>
-        <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
-          <li (click)="irSeccion($event)">Inicio</li>
-          <li (click)="irSeccion($event)">Búsqueda</li>
-          <li (click)="irSeccion($event)">Mi area</li>
-        </ul>
-      </li>
-      <li *ngIf="postRoute">
-        <a (click)="retroceder()">
-          <img src="../../assets/images/back-arrow.svg" alt="">
+      <li>
+        <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+          <img src="../../assets/images/simbolo.svg" alt="icon">
         </a>
       </li>
     </ul>
@@ -42,7 +31,17 @@
   </form>
 
   <div class="user">
-    <a (click)="navegarAreaUsuario()"><img src="../../assets/images/avatarlow.jpg" alt=""></a>
+    <a (click)="desplegarMenu()">
+      <div class="imgCont">
+        <img [src]="userImage" alt="" *ngIf="!desplegar">
+        <img src="../../assets/images/close.svg" alt="icon" *ngIf="desplegar">
+      </div>
+      <ul class="submenu" [ngClass]="{desplegar:desplegar,replegar:!desplegar}">
+        <li (click)="navegarAreaUsuario()" *ngIf="!usuarioConectado">Login</li>
+        <li (click)="navegarAreaUsuario()" *ngIf="usuarioConectado">Mi area</li>
+        <li (click)="desconectar()" *ngIf="usuarioConectado">Desconectar</li>
+      </ul>
+    </a>
   </div>
 
   <form class="advancedSearch" *ngIf="searchActive" [formGroup]="advancedSearch">
@@ -59,7 +58,7 @@
         </label>
         <input type="checkbox" name="contenido" id="" formControlName="contenido">
       </div>
-<!--
+      <!--
       <div class="control">
         <label>
           categoria
