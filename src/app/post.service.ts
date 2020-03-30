@@ -10,7 +10,7 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) {
 
-    this.baseUrl = 'http://localhost:3000/api/posts';
+    this.baseUrl = 'https://cauken.herokuapp.com/api/posts';
 
   }
 
