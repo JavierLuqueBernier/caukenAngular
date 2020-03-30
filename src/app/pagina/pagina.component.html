@@ -13,7 +13,7 @@
     <figure *ngIf="post.imagen!=null">
       <img [src]="post.imagen" [alt]="post.titulo">
     </figure>
-    {{post.contenido}}
+   <div [innerHtml]="post.contenido"></div>
   </div>
   <div class="decision">
     <app-decision [id]="post.id"></app-decision>

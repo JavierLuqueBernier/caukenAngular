@@ -97,10 +97,11 @@ export class GeoMapComponent implements OnInit {
       console.log('entra en el if');
       navigator.geolocation.getCurrentPosition((position) => { //Te lanza tus coordenadas en el momento de la carga
         console.log('entra en el navigator');
+
         this.loadMap(position);
         //Esto envía las coordenadas a newC con la posición del dispositivo
         console.log(position.coords.latitude);
-        /* this.coordenadas.emit({ latitud: position.coords.latitude, longitud: position.coords.longitude }); */
+        this.coordenadas.emit({ latitud: position.coords.latitude, longitud: position.coords.longitude });
       }, (error) => {
         console.log(error)
       });

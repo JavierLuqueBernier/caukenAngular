@@ -22,6 +22,9 @@ export class NewComponent implements OnInit {
   imagen: string;
   contenido: string;
   categoria: string;
+  editorStyle: any;
+  editorConfig: any;
+  geoActivo: boolean;
   constructor(
     private postService: PostService,
     private userService: UserService,
@@ -30,6 +33,20 @@ export class NewComponent implements OnInit {
   ) {
     this.postData = {};
     this.usuario = localStorage.getItem('usuario');
+    this.geoActivo = false;
+    this.editorStyle = {
+      height: '50vh',
+      fontFamily: "Roboto', Helvetica, sans-serif",
+      border: 'none'
+    }
+    this.editorConfig = {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'align': [] }],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        ['link']
+      ],
+    }
     /* this.titulo = '';
     this.imagen = '';
     this.contenido = '';
@@ -145,5 +162,13 @@ export class NewComponent implements OnInit {
     console.log($event)
     this.newPostForm.get('latitud').setValue($event.latitud);
     this.newPostForm.get('longitud').setValue($event.longitud);
+  }
+
+  desplegarGeolocalizacion() {
+    this.geoActivo = !this.geoActivo;
+    if(this.geoActivo===false){
+      this.newPostForm.get('latitud').setValue(null);
+      this.newPostForm.get('longitud').setValue(null);
+    }
   }
 }
