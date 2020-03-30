@@ -33,3 +33,15 @@ form {
     /* border: 1px solid red; */
     display: block;
 }
+
+.error {
+    color: red;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+/* input.ng-valid.ng-touched { //esto sería si quisieramos que se viera un borde verde rodeando las casillas correctamente completas
+    border: 1px solid green;
+} */
