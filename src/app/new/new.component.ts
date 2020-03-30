@@ -63,7 +63,7 @@ export class NewComponent implements OnInit {
         Validators.maxLength(50)
       ]),
       contenido: new FormControl('', [
-        Validators.maxLength(8192)
+        Validators.maxLength(4096)
       ]),
       colaborable: new FormControl('colabo', [
 
