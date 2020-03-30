@@ -16,10 +16,10 @@
                     <p class="error"
                         *ngIf="formRegister.controls.nombre.errors?.required && formRegister.controls.nombre.touched">
                         El campo Nombre es requerido</p>
-                    <p class="error"
+                    <!-- p class="error"
                         *ngIf="formRegister.controls.nombre.errors?.maxlength && formRegister.controls.nombre.dirty">El
                         campo Nombre debe tener una longitud maxima de
-                        {{ formRegister.controls.nombre.errors.maxlength.requiredLength }}</p>
+                        {{ formRegister.controls.nombre.errors.maxlength.requiredLength }}</p> -->
                 </fieldset>
                 <fieldset class="borde">
                     <legend class="w-auto">Contraseña</legend>
