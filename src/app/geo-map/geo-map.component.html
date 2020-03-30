@@ -1,3 +1,11 @@
-<input type="text" id="inputPlaces">
-<input type="button" (click)="manejarPosicionUsuario()" value="Mi posición">
+<p>Selecciona una ubicación</p>
+<fieldset class="formGroup">
+  <legend>Selecciona una forma para grabar la ubicación</legend>
+  <label for="inputPlaces">Busca una dirección</label>
+  <input type="text" id="inputPlaces">
+  <label for="posicionUsuario">Usa tu posición actual</label>
+  <input type="button" id="posicionUsuario" (click)="manejarPosicionUsuario()" value="Mi posición">
+  <label for="posicionUsuario">O pulsa directamente en el mapa</label>
+  <p>Si le das al botón geolocalización no se guardará la geoposición</p>
+</fieldset>
 <div class="mapa" id="mapaId"></div>
