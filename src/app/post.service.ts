@@ -10,7 +10,7 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) {
 
-    this.baseUrl = 'http://localhost:3000/api/posts';
+    this.baseUrl = 'https://cauken.herokuapp.com/api/posts';
 
   }
 
@@ -104,13 +104,13 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/getbyuser`, parameters).toPromise();
   }
 
-  getPrivateByUser(parameters){
+  getPrivateByUser(parameters) {
     parameters.userid = localStorage.getItem('usuario');
     parameters.usertoken = localStorage.getItem('token');
     return this.httpClient.post(`${this.baseUrl}/privatebyuser`, parameters).toPromise();
   }
 
-  getReadsByUser(parameters){
+  getReadsByUser(parameters) {
     parameters.fk_usuario = parameters.userid = localStorage.getItem('usuario');
     parameters.usertoken = localStorage.getItem('token');
     return this.httpClient.post(`${this.baseUrl}/userreads`, parameters).toPromise();
