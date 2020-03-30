@@ -1,7 +1,5 @@
 .crearPostBtn {
-  position: absolute;
-  right:1em;
-  bottom:1em;
+  position: relative;
   width: 4rem;
   height: 4rem;
   background: var(--background3);

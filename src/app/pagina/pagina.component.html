@@ -1,7 +1,7 @@
 <section class="post" *ngIf="post">
   <header>
     <h2>{{post.titulo}}</h2>
-    <h3><a>{{post.usuario}}</a></h3>
+    <h3><a>{{post.nombre}}</a></h3>
   </header>
   <div class="migas" *ngIf="migasReady">
     <div class="miga" *ngFor="let miga of arrMigas">
@@ -15,6 +15,17 @@
     </figure>
    <div [innerHtml]="post.contenido"></div>
   </div>
+  <nav class="postActions">
+    <div class="autor">
+      <img [src]="post.imagen_perfil" alt="">
+    </div>
+    <div class="share" [routerLink]="['/login']">
+      <img src="../../assets/images/share.svg" alt="">
+    </div>
+    <div class="likes">
+      <app-likes [id]="post.id"></app-likes>
+    </div>
+  </nav>
   <div class="decision">
     <app-decision [id]="post.id"></app-decision>
   </div>

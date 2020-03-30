@@ -8,7 +8,8 @@ import {
   ID_PADRE,
   SEARCH,
   SEARCH_ACTIVE,
-  OCULTAR_NAV
+  OCULTAR_NAV,
+  USER_ACTIVE,
 } from './actions';
 
 import { tassign } from 'tassign';
@@ -25,6 +26,7 @@ export interface IAppState {
   idPadre: number;
   search: any;
   searchActive: boolean;
+  userActive: boolean;
 
 
 }
@@ -42,6 +44,7 @@ export const INITIAL_STATE: IAppState = {
   idPadre: null,
   search: {},
   searchActive: false,
+  userActive: false
 };
 
 export function rootReducer(state, action): IAppState {
@@ -82,6 +85,9 @@ export function rootReducer(state, action): IAppState {
 
     case SEARCH_ACTIVE: {
       return tassign(state, { searchActive: action.searchActive })
+    }
+    case USER_ACTIVE: {
+      return tassign(state, { userActive: action.userActive })
     }
   }
   return state;
