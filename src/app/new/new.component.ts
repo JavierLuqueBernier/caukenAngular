@@ -97,7 +97,6 @@ export class NewComponent implements OnInit {
 
 
     this.newPostForm.get('titulo').setValue(this.postData.titulo);
-    console.log('El título de marras')
     console.log(this.postData);
 
 
