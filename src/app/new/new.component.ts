@@ -63,7 +63,7 @@ export class NewComponent implements OnInit {
         Validators.maxLength(50)
       ]),
       contenido: new FormControl('', [
-        Validators.maxLength(4096)
+        Validators.maxLength(8192)
       ]),
       colaborable: new FormControl('colabo', [
 
@@ -114,7 +114,6 @@ export class NewComponent implements OnInit {
 
 
     this.newPostForm.get('titulo').setValue(this.postData.titulo);
-    console.log('El título de marras')
     console.log(this.postData);
 
 
@@ -167,7 +166,7 @@ export class NewComponent implements OnInit {
 
   desplegarGeolocalizacion() {
     this.geoActivo = !this.geoActivo;
-    if(this.geoActivo===false){
+    if (this.geoActivo === false) {
       this.newPostForm.get('latitud').setValue(null);
       this.newPostForm.get('longitud').setValue(null);
     }

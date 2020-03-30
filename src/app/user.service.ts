@@ -9,7 +9,8 @@ export class UserService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'https://cauken.herokuapp.com/api/users';
+    /* this.baseUrl = 'https://cauken.herokuapp.com/api/users'; */
+    this.baseUrl = 'http://localhost:3000/api/users';
   }
 
   registro(formValues): Promise<any> {
