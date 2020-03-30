@@ -3,48 +3,68 @@
     <h2>¡Estás creando!</h2>
     <form [formGroup]="newPostForm" (ngSubmit)="manejarSubmit()">
 
-      <div class="form-group">
-        <label for="titulo">
+      <fieldset class="formGroup">
+        <legend for="titulo">
           Título: <span class="error"
             *ngIf=" newPostForm.controls.titulo.errors?.required && newPostForm.controls.titulo.touched">El
             título es obligatorio</span>
           <span class="error"
             *ngIf=" newPostForm.controls.titulo.errors?.maxlength  && newPostForm.controls.titulo.dirty">
             Máximo {{newPostForm.controls.titulo.errors?.maxlength.requiredLength}} caracteres</span>
-        </label>
+        </legend>
         <input class="form-control" type="text" formControlName="titulo" id="titulo">
-      </div>
+      </fieldset>
 
-      <div class="form-group">
-        <label for="imagen">
+      <fieldset class="formGroup">
+        <legend for="imagen">
           Imagen: <span class="error"
             *ngIf=" newPostForm.controls.imagen.errors?.maxlength  && newPostForm.controls.imagen.dirty">
             Máximo {{newPostForm.controls.imagen.errors?.maxlength.requiredLength}} caracteres</span>
-        </label>
-        <input class="form-control" type="text" formControlName="imagen" id="imagen"></div>
+        </legend>
+        <input class="form-control" type="text" formControlName="imagen" id="imagen"></fieldset>
 
-      <div class="form-group">
-        <label for="imagen">
+      <fieldset class="formGroup">
+        <legend for="categoria">
           Categoría: <span class="error"
             *ngIf=" newPostForm.controls.categoria.errors?.maxlength  && newPostForm.controls.categoria.dirty">
             Máximo {{newPostForm.controls.categoria.errors?.maxlength.requiredLength}} caracteres</span>
-        </label>
+        </legend>
         <input class="form-control" type="text" formControlName="categoria" id="categoria">
+      </fieldset>
 
-      </div>
-      <div class="form-group">
-        <label for="contenido">
+
+     <!--  <fieldset>
+        <legend for="contenido">
           Contenido: <span class="error"
             *ngIf=" newPostForm.controls.contenido.errors?.maxlength  && newPostForm.controls.contenido.dirty">
             Máximo {{newPostForm.controls.contenido.errors?.maxlength.requiredLength}} caracteres</span>
-        </label>
+        </legend>
         <textarea class="form-control" name="" id="contenido" cols="30" rows="10"
           formControlName="contenido"></textarea>
-      </div>
+      </div> -->
+      <fieldset class="formGroup">
+        <legend for="contenido">
+          Contenido: <span class="error"
+            *ngIf=" newPostForm.controls.contenido.errors?.maxlength  && newPostForm.controls.contenido.dirty">
+            Máximo {{newPostForm.controls.contenido.errors?.maxlength.requiredLength}} caracteres</span>
+        </legend>
+        <quill-editor class="quill" [modules]="editorConfig" [styles]="editorStyle" id="contenido" formControlName="contenido"></quill-editor>
+      </fieldset>
+
 
        <!-- Aqui sería donde se pondria el mapa para geoposicionar -->
-       <app-geo-map (coordenadas)="recibirCoordenadas($event)"></app-geo-map>
+      <fieldset class="formGroup geoCont">
+        <button type="menu" (click)="desplegarGeolocalizacion()">geolocalizacion</button>
 
+        <div class="" *ngIf="geoActivo">
+          <div class="latLong">
+           <label>Latitud <input type="number" name="latitud" formControlName="latitud"></label>
+           <label>Longitud <input type="number" name="longitud" formControlName="longitud"></label>
+          </div>
+           <app-geo-map (coordenadas)="recibirCoordenadas($event)" ></app-geo-map>
+        </div>
+
+      </fieldset>
       <fieldset class="colabo radio">
         <legend>¿Deseas que otros puedan colaborar en tu rama?</legend>
         <input type="radio" name="colaborable" id="colabo" value="colabo" formControlName="colaborable" [checked]="true">
@@ -66,8 +86,7 @@
       </fieldset>
 
       <input type="hidden" name="fk_id_anterior" formControlName="fk_id_anterior">
-      <input type="hidden" name="latitud" formControlName="latitud">
-      <input type="hidden" name="longitud" formControlName="longitud">
+
       <input type="hidden" name="fk_usuario" formControlName="fk_usuario">
       <input type="hidden" name="fk_ancestro" formControlName="fk_ancestro">
 

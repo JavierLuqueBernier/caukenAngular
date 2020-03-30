@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuillModule } from 'ngx-quill';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,7 +67,8 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     HttpClientModule,
     NgReduxModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
