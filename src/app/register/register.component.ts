@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
       ]),
 
       imagen_perfil: new FormControl('', [
-        Validators.required,
         Validators.maxLength(255)
       ])
 
@@ -92,7 +91,7 @@ export class RegisterComponent implements OnInit {
   ngOnDestroy() {
     this.ngRedux.dispatch({
       type: OCULTAR_NAV,
-     ocultarNav: false,
+      ocultarNav: false,
     });
   }
 
