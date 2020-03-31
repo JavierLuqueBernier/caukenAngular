@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
-import { ROUTE_AFTER, ID_PADRE } from '../actions';
+import { ROUTE_AFTER, ID_PADRE, ID_ANCESTRO } from '../actions';
 import { Router } from '@angular/router';
 import { animate, style, group, query, transition, trigger, state } from '@angular/animations';
 import { PostService } from '../post.service';
@@ -32,6 +32,7 @@ export class NewBtnComponent implements OnInit {
   id_padre: number; */
 
   @Input() idPadre: number;
+  @Input() idAncestro: number;
   animate: boolean;
 
 
@@ -42,6 +43,7 @@ export class NewBtnComponent implements OnInit {
   ) {
     /* this.id_padre = (this.postService.getIdPadre() != null) ? this.postService.getIdPadre() : ""; //esta funcion aun no existe en el servicio */
     this.idPadre = null;
+    this.idAncestro = null;
     this.animate = false;
   }
 
@@ -73,9 +75,13 @@ export class NewBtnComponent implements OnInit {
     } else if (this.idPadre) {
       console.log('IdPadre existe');
     }
+    this.ngRedux.dispatch({
+      type: ID_ANCESTRO,
+      idAncestro: this.idAncestro
+    })
     window.setTimeout(this.navigateNew.bind(this), 300);
-
   }
+
   navigateNew() {
     this.router.navigate(['/new-post']);
   }

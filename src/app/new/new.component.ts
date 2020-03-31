@@ -14,6 +14,7 @@ import { Post } from '../models/post';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
+  postPadre: any;
   newPostForm: FormGroup;
   errors: any;
   postData: any;
@@ -56,10 +57,10 @@ export class NewComponent implements OnInit {
         Validators.required,
         Validators.maxLength(50)
       ]),
-      imagen: new FormControl('', [
+      imagen: new FormControl(null, [
         Validators.maxLength(255)
       ]),
-      categoria: new FormControl('', [
+      categoria: new FormControl(null, [
         Validators.maxLength(50)
       ]),
       contenido: new FormControl('', [
@@ -105,12 +106,13 @@ export class NewComponent implements OnInit {
     /*----------------------RECUPERAR DATOS REDUX--------------------- */
     /*---------------------------------------------------------------- */
     const state = this.ngRedux.getState();
+
     this.postData = state.postData;
     this.newPostForm.get('fk_id_anterior').setValue(state.idPadre);
+    this.newPostForm.get('fk_ancestro').setValue(state.idAncestro);
     console.log(this.newPostForm.controls.fk_id_anterior.value);
-    console.log(state.idPadre);
-    console.log('paso por redux')
-    console.log(this.titulo);
+    console.log(this.newPostForm.controls.fk_ancestro.value);
+
 
 
     this.newPostForm.get('titulo').setValue(this.postData.titulo);
