@@ -26,6 +26,7 @@ export class NewComponent implements OnInit {
   editorStyle: any;
   editorConfig: any;
   geoActivo: boolean;
+  tipoTitulo: string;
   constructor(
     private postService: PostService,
     private userService: UserService,
@@ -35,9 +36,10 @@ export class NewComponent implements OnInit {
     this.postData = {};
     this.usuario = localStorage.getItem('usuario');
     this.geoActivo = false;
+    this.tipoTitulo = '¡Estás creando un hilo nuevo!';
     this.editorStyle = {
       height: '50vh',
-      fontFamily: "Roboto', Helvetica, sans-serif",
+      fontFamily: "'Roboto', Helvetica, sans-serif",
       border: 'none'
     }
     this.editorConfig = {
@@ -92,6 +94,7 @@ export class NewComponent implements OnInit {
   Está preparado en dos campos ocultos latitud y longitud */
 
   async ngOnInit() {
+    window.scrollTo(0, 0);
     // Se comprueba si el token es válido, si no navega a login. Independientemente el token se comprobará de nuevo al enviar el post.
     const login = await this.userService.checkToken();
     if (login['login'] === false) {
@@ -110,8 +113,12 @@ export class NewComponent implements OnInit {
     this.postData = state.postData;
     this.newPostForm.get('fk_id_anterior').setValue(state.idPadre);
     this.newPostForm.get('fk_ancestro').setValue(state.idAncestro);
+    console.log('los datos que necesito')
     console.log(this.newPostForm.controls.fk_id_anterior.value);
     console.log(this.newPostForm.controls.fk_ancestro.value);
+    if (this.newPostForm.controls.fk_id_anterior.value != null) {
+      this.tipoTitulo = '¡Estás creando en un hilo existente!';
+    }
 
 
 
