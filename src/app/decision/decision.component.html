@@ -1,21 +1,8 @@
 <div class="decisin">
   <p>¿Qué deseas hacer?</p>
   <div class="scroller" *ngIf="ready">
-    <article class="decisionCont" *ngIf="mostLikedReady">
-      <a (click)="navegarPage(mostLikedChild.id)">
-        <div class="decision">
-          <div class="imgDec">
-            <img [src]="mostLikedChild.imagen" alt="">
-          </div>
-          <div class="textDec">
-            <h6>{{ mostLikedChild.titulo }}</h6>
-            <h6>{{ mostLikedChild.nombre }}</h6>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article class="decisionCont" *ngFor="let decision of arrDecisions">
-      <a (click)="navegarPage(decision.id)" *ngIf="mostLikedChild.id!=decision.id">
+      <article class="decisionCont" *ngFor="let decision of arrDecisions">
+      <a (click)="navegarPage(decision.id)">
         <div class="decision">
           <div class="imgDec">
             <img [src]="decision.imagen" alt="">

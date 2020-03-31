@@ -56,7 +56,8 @@ export class DecisionComponent implements OnInit {
       console.log(response);
       if (!response.warning) {
       this.mostLikedChild = response;
-      this.mostLikedReady=true;
+      this.mostLikedReady=true
+      this.arrDecisions.push(this.mostLikedChild);
       }
     } catch (err) {
       console.log(err);

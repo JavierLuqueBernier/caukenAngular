@@ -25,8 +25,8 @@
   width: 33%;
 }
 
-.scroller article:last-child {
-  width: 0%;
+.collapse{
+  width:0%;
 }
 
 .decisionCont a {
