@@ -14,9 +14,12 @@ export class DecisionComponent implements OnInit {
 
   @Input() id: number;
   @Output() outId: EventEmitter<any> = new EventEmitter();
+  @Input() idAncestro: number;
 
+  mostLikedChild: any;
   arrDecisions: any[];
   ready: boolean;
+  mostLikedReady: boolean;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
@@ -24,32 +27,42 @@ export class DecisionComponent implements OnInit {
     private postService: PostService
   ) {
     this.ready = false;
+    this.mostLikedReady = false;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.ngRedux.dispatch({
       type: DECISION_ACTIVE,
       loginActive: true
     });
+    try {
+      const response = await this.postService.getChildren({ id: this.id });
+      if (!response.warning) {
+        this.arrDecisions = response;
+        this.ready = true;
+        console.log(this.arrDecisions);
+      } else {
+        this.arrDecisions = [
+          {
+            titulo: 'de momento no hay continuación. ¿Te atreves?'
+          }
+        ]
+      }
+    } catch (err) {
+      console.log(err)
+    }
+    try {
+      const response = await this.postService.findMostLikedChild({ id: this.id });
+      console.log(response);
+      if (!response.warning) {
+      this.mostLikedChild = response;
+      this.mostLikedReady=true
+      this.arrDecisions.push(this.mostLikedChild);
+      }
+    } catch (err) {
+      console.log(err);
+    }
 
-    this.postService.getChildren({ id: this.id })
-      .then(response => {
-        if (!response.warning) {
-          this.arrDecisions = response;
-          this.ready = true;
-          console.log(this.arrDecisions);
-        } else {
-          this.arrDecisions = [
-            {
-              titulo: 'no hay más decisiones'
-            }
-          ]
-        }
-
-      })
-      .catch(err => {
-        console.log(err);
-      })
   }
 
   navegarPage(id) {

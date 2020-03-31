@@ -6,6 +6,7 @@ import {
   ROUTE_AFTER,
   POST_DATA,
   ID_PADRE,
+  ID_ANCESTRO,
   SEARCH,
   SEARCH_ACTIVE,
   OCULTAR_NAV,
@@ -27,6 +28,7 @@ export interface IAppState {
   search: any;
   searchActive: boolean;
   userActive: boolean;
+  idAncestro: number;
 
 
 }
@@ -44,7 +46,8 @@ export const INITIAL_STATE: IAppState = {
   idPadre: null,
   search: {},
   searchActive: false,
-  userActive: false
+  userActive: false,
+  idAncestro: null,
 };
 
 export function rootReducer(state, action): IAppState {
@@ -78,6 +81,9 @@ export function rootReducer(state, action): IAppState {
     }
     case ID_PADRE: {
       return tassign(state, { idPadre: action.idPadre });
+    }
+    case ID_ANCESTRO: {
+      return tassign(state, { idAncestro: action.idAncestro });
     }
     case SEARCH: {
       return tassign(state, { search: action.search });

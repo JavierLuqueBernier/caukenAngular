@@ -7,7 +7,7 @@
   border-radius: 1rem 1rem 0 0;
   height: auto;
   position: relative;
-  padding-bottom:1rem;
+  padding-bottom: 1rem;
 }
 
 .scroller::-webkit-scrollbar {
@@ -21,8 +21,12 @@
   scrollbar-width: none;
 }
 
-.scroller article{
-  width:33%;
+.scroller article {
+  width: 33%;
+}
+
+.collapse{
+  width:0%;
 }
 
 .decisionCont a {
@@ -89,7 +93,7 @@ p {
   position: relative;
   width: 4rem;
   height: 4rem;
-  margin:3rem auto;
+  margin: 3rem auto;
   /* transform: translateX(-50%); */
 }
 

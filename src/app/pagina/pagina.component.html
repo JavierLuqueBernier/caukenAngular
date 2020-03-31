@@ -27,7 +27,7 @@
     </div>
   </nav>
   <div class="decision">
-    <app-decision [id]="post.id"></app-decision>
+    <app-decision [id]="post.id" [idAncestro]="post.fk_ancestro"></app-decision>
   </div>
   <div class="comments">
     <router-outlet></router-outlet>

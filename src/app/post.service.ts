@@ -36,6 +36,10 @@ export class PostService {
     return this.httpClient.post(`${this.baseUrl}/children`, parameters).toPromise();
   }
 
+  findMostLikedChild(parameters): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/likedchild`, parameters).toPromise();
+  }
+
   getAncestors(parameters): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/ancestors`, parameters).toPromise();
   }
