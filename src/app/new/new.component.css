@@ -130,7 +130,7 @@ input[type="submit"].disabled {
   color: var(--background7)
 }
 
-.geoCont button {
+.geoCont a {
   display: block;
   background: var(--background3);
   color: var(--background1);

@@ -142,7 +142,7 @@ export class NewComponent implements OnInit {
         //1 se guarda ruta en redux
         this.ngRedux.dispatch({
           type: ROUTE_AFTER,
-          routeAfter: '/new-post',
+          routeAfter: `/page/${response.id}`,
 
         });
         //2 se guardan datos en formulario
