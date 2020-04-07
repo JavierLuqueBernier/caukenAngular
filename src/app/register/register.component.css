@@ -1,45 +1,56 @@
+.hamburguer {
+  position: fixed;
+  left: 1rem;
+  top: .2rem;
+}
+
+.hamburguer img {
+  width: 2rem;
+  height: 2rem;
+}
+
 fieldset.borde {
-    border: 3px solid var(--color3);
+  border: 3px solid var(--color3);
 }
 
 input {
-    border: none;
-    background: none;
+  border: none;
+  background: none;
 }
 
 legend {
-    margin-left: 1em;
-    padding: 0.5em;
-    font-size: 0.75rem;
-    color: var(--color3);
+  margin-left: 1em;
+  padding: 0.5em;
+  font-size: 0.75rem;
+  color: var(--color3);
 }
 
 form {
-    width: 100%;
+  width: 100%;
 }
 
 .btn {
-    width: 150px;
-    height: 36px;
-    border-radius: 12.5rem;
-    background-color: #e8644a;
-    margin: 2em auto;
-    display: block;
-    border: none;
-  }
+  width: 150px;
+  height: 36px;
+  border-radius: 12.5rem;
+  background-color: #e8644a;
+  margin: 2em auto;
+  display: block;
+  border: none;
+}
 
 .imagotipo {
-    margin: 3em auto;
-    /* border: 1px solid red; */
-    display: block;
+  margin: 3em auto;
+  /* border: 1px solid red; */
+  display: block;
 }
 
 .error {
-    color: red;
+  color: red;
 }
 
 input.ng-invalid.ng-touched {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 /* input.ng-valid.ng-touched { //esto sería si quisieramos que se viera un borde verde rodeando las casillas correctamente completas

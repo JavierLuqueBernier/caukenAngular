@@ -26,6 +26,7 @@
   max-width: 300px;
   text-align: center;
   color: var(--background3);
+  text-shadow: 0 0.5px white;
   /* #585858 */
   margin: auto;
   animation: info 6s ease-in;
@@ -59,7 +60,7 @@
 }
 
 .heroSub img {
-  width: 25rem;
+  width: 23rem;
 }
 
 @keyframes subt {

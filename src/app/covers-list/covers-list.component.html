@@ -1,6 +1,10 @@
 <section class="covers-list">
-  <h2>{{tituloSeccion}}</h2>
+  <div class="dir">
+  <button (click)="manejarRetroceder()">&#9668;</button><h2>{{tituloSeccion}}</h2><button (click)="manejarAvanzar()">&#9658;</button>
+
+  </div>
   <div class="scroller">
+
     <div class="coverCont" *ngFor="let post of arrPosts">
       <a [routerLink]="['/cover', post.id]">
         <article class="cover">
@@ -16,5 +20,7 @@
         </article>
       </a>
     </div>
+
   </div>
+
 </section>

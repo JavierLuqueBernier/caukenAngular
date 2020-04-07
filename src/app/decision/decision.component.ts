@@ -53,11 +53,12 @@ export class DecisionComponent implements OnInit {
     }
     try {
       const response = await this.postService.findMostLikedChild({ id: this.id });
-      console.log(response);
       if (!response.warning) {
-      this.mostLikedChild = response;
-      this.mostLikedReady=true
-      this.arrDecisions.push(this.mostLikedChild);
+        this.mostLikedChild = response;
+        const index = this.arrDecisions.findIndex(elemento => elemento.id == this.mostLikedChild.id);
+        this.arrDecisions.splice(index, 1);
+        this.mostLikedReady = true;
+        this.arrDecisions.unshift(this.mostLikedChild);
       }
     } catch (err) {
       console.log(err);

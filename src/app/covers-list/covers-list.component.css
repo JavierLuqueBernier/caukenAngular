@@ -2,22 +2,52 @@
   display: none;
 }
 
+.covers-list {
+  position: relative;
+}
+
+.dir {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+  margin: 1em 0em .5em;
+}
+
+.dir button {
+  background: none;
+  color: var(--background3);
+  border: none;
+  text-shadow: 3px 3px 3px var(--shadow2);
+  width: 4rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0em 1em;
+  padding: 0;
+}
+
 .scroller {
   overflow-y: hidden;
   overflow-x: scroll;
   display: flex;
+  flex-flow:row wrap;
   scrollbar-width: none;
 }
 
-.coverCont a{
+.coverCont{
+  width:50%;
+}
+
+.coverCont a {
   display: block;
 }
 
 .cover {
-  width: 168px;
+  width: 90%;
+  margin:0 auto 1em;
   height: 244px;
   overflow: hidden;
-  margin: 1em;
   border-radius: .5em;
   box-shadow: 3px 3px 7px var(--shadow1);
   background: var(--background1);
@@ -25,7 +55,7 @@
 
 .cover .imgCont {
   position: relative;
-  width: 168px;
+  width: 100%;
   height: 168px;
   overflow: hidden;
 }
@@ -38,9 +68,8 @@
   height: 100%;
 }
 
-.coverText{
+.coverText {
   padding: .875rem 1rem 1rem;
-
 }
 
 .cover h3 {
@@ -49,9 +78,9 @@
 
 .cover p {
   color: var(--color2);
-  font-size:.875rem;
+  font-size: .875rem;
 }
 
-.cover .hashtag{
-  padding-right:1em;
+.cover .hashtag {
+  padding-right: 1em;
 }

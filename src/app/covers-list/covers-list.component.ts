@@ -27,4 +27,30 @@ export class CoversListComponent implements OnInit {
     }
   }
 
+  async manejarAvanzar() {
+
+    this.listParameters.offset += 2;
+
+    try {
+      this.arrPosts = await this.postService.getCovers(this.listParameters);
+    } catch (err) {
+      this.errors = err;
+      console.log(this.errors);
+
+    }
+  }
+
+  async manejarRetroceder() {
+    if (this.listParameters.offset != 0) {
+      this.listParameters.offset -= 2;
+    }
+    try {
+      this.arrPosts = await this.postService.getCovers(this.listParameters);
+    } catch (err) {
+      this.errors = err;
+      console.log(this.errors);
+
+    }
+  }
+
 }
