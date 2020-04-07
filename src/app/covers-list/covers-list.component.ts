@@ -29,7 +29,7 @@ export class CoversListComponent implements OnInit {
 
   async manejarAvanzar() {
 
-    this.listParameters.offset += 2;
+    this.listParameters['offset'] += 2;
 
     try {
       this.arrPosts = await this.postService.getCovers(this.listParameters);
@@ -41,8 +41,8 @@ export class CoversListComponent implements OnInit {
   }
 
   async manejarRetroceder() {
-    if (this.listParameters.offset != 0) {
-      this.listParameters.offset -= 2;
+    if (this.listParameters['offset'] != 0) {
+      this.listParameters['offset'] -= 2;
     }
     try {
       this.arrPosts = await this.postService.getCovers(this.listParameters);
